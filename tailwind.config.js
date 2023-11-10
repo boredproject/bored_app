@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 10s linear infinite',
+        'spin-medium': 'spin 3s linear infinite',
+      }
+    },
   },
   plugins: [],
 }

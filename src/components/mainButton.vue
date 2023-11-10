@@ -1,14 +1,14 @@
 <template>
   <div class="flex justify-center items-center h-screen relative max-h-full">
     <div
-      class="absolute h-full flex justify-center items-center transform transition-all duration-300 hover:scale-90"
+      class="absolute flex justify-center items-center transform transition-all duration-300 hover:scale-90"
     >
       <svg
         class="animate-spin-slow hover:animate-spin-medium transition-all"
         id="skyrim"
         viewBox="0 0 100 100"
-        width="500"
-        height="500"
+        width="400"
+        height="400"
       >
         <defs>
           <path
@@ -39,7 +39,7 @@
       </svg>
     </div>
     <button
-      class="absolute z-1 flex items-center justify-center bg-transparent text-white font-bold uppercase px-2 py-1 rounded text-4xl border-4 border-white transform transition-all duration-300 hover:scale-125"
+      class="absolute z-1 flex items-center justify-center bg-transparent text-white font-bold uppercase px-2 py-1 rounded-lg text-3xl border-4 border-white transform transition-all duration-300 hover:scale-125"
     >
       BO<span class="text-[#5E2BFF]">RED</span>
       <svg

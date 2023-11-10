@@ -38,4 +38,12 @@
             </svg>
           </div>
           <!--Waves end-->
+          <div class="fixed bottom-0 text-middle flex flex-col align-center justify-center w-full text-center uppercase gap-2 pb-2">
+            <p>
+                All rights reserved ©
+            </p>
+            <p>
+                <span class="text-[#26E8A0] font-bold">HETIC</span> students 2024
+            </p>
+          </div>
 </template>

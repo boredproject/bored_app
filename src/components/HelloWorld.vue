@@ -7,11 +7,7 @@
     </div>
       
     <div class="text-sm flex flex-col align-middle justify-center gap-5">
-      <div>
-        <p class="text-center text-2xl text-[#26E8A0]">HETIC</p>
-        <p class="text-center">Students</p>
-      </div>
-      <p class="text-center font-extralight">Samy , Icham , Wissem , Victor , Alexis , Maxime , Jean .</p>
+      <p class="text-center font-extralight opacity-5">Samy , Icham , Wissem , Victor , Alexis , Maxime , Jean .</p>
     </div>
   </div>
 </template>

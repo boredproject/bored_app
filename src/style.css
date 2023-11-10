@@ -12,6 +12,12 @@
   flex-direction: column;
 }
 
+::selection {
+  background-color: #5E2BFF;
+  color: #26E8A0;
+}
+
+
 body {
   background-color: #181818;
   color: white;

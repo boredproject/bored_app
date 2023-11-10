@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center h-screen relative">
+  <div class="flex justify-center items-center h-screen relative max-h-full">
     <div
       class="absolute h-full flex justify-center items-center transform transition-all duration-300 hover:scale-90"
     >

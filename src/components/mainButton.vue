@@ -20,7 +20,7 @@
                       a 35,35 0 1,1 -70,0"
           />
         </defs>
-        <text font-weight="bold" font-size="6.7" letter-spacing="0.3" font-family="'Inter', sans-serif">
+        <text font-weight="bold" font-size="7" letter-spacing="-0.12" font-family="'Inter', sans-serif">
           <textPath xlink:href="#circle">
             CLICK
             <tspan class="text-[#5E2BFF]">ME!</tspan>

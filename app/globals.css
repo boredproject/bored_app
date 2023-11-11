@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background-color: #5E2BFF;
+  color: #26E8A0;
+}
+
+
+body {
+  background-color: #181818;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  cursor : url('./assets/WiiCursor.cur'), auto;
+  cursor: url('./assets/WiiCursor.cur'), pointer;
+}

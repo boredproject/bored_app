@@ -99,7 +99,7 @@
     </audio>
   </div>
   <div class="fixed top-0 left-0 p-4 flex flex-row gap-6">
-    <button @click="toggleMute" class="bg-white text-black p-2 text-xl">
+    <button @click="toggleMuteAndPlay" class="bg-transparent border-4 border-white rounded-lg py-1 px-2 p-2 text-sm text-white uppercase hover:scale-125 transition-all duration-300">
       {{ bgAudioVolume === 0 ? 'Unmute' : 'Mute' }}
     </button>
   </div>
@@ -132,6 +132,11 @@ const playClick = () => {
     audioClick.value.play();
     toggleButtons();
   }
+};
+
+const toggleMuteAndPlay = () => {
+  toggleMute();
+  playClick();
 };
 
 const toggleButtons = () => {

@@ -47,7 +47,7 @@
 }
 
 .hide {
-  opacity: 0;
+  display: none;
 }
 </style>
 

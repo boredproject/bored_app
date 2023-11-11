@@ -6,8 +6,10 @@ import loader from './components/loader.vue';
 </script>
 
 <template>
+  
   <mainButton />
   <footerWave />
   <LogAndAcc />
   <loader />
+  
 </template>

@@ -75,6 +75,10 @@
         />
       </svg>
     </button>
+    <audio id="myAudio" autoplay controls volume="0.1" loop>
+      <source src="https://bored-bucket.s3.eu-west-3.amazonaws.com/Wii+Menu+Music+1+Hour.mp4" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
   </div>
 </template>
 
@@ -85,4 +89,27 @@
   transform-origin: center;
   width: 100%;
 }
+
+audio {
+  display: none;
+}
 </style>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const myAudio = ref<HTMLAudioElement | null>(null);
+const volume = ref(0);
+
+// @ts-ignore
+function adjustVolume() {
+  console.log('adjustVolume called');
+  console.log('myAudio.value:', myAudio.value);
+  console.log('volume.value:', volume.value);
+
+  if (myAudio.value) {
+    myAudio.value.volume = volume.value;
+  }
+}
+</script>
+

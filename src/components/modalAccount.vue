@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-[#0f0f0f] hidden fixed w-1/6 h-2/4 flex flex-col right-0 border-4 rounded-s-lg border-[#5E2BFF]">
+    <div class="bg-[#0f0f0f] hidden fixed w-1/6 h-2/4 flex-col right-0 border-4 rounded-s-lg border-[#5E2BFF]">
         <div class="flex flex-col justify-center items-center align-middle p-4">
             <figure class="flex scale-75 flex-col justify-center align-middle text-center">
                 <svg width="172" height="51" viewBox="0 0 172 51" fill="none" xmlns="http://www.w3.org/2000/svg">

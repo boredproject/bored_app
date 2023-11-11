@@ -42,6 +42,14 @@ const WaveFooter = () => {
             <use xlinkHref="#gentle-wave" x="48" y="7" fill="#5E2BFF" />
           </g>
         </svg>
+        <div className="fixed bottom-0 text-middle flex flex-col align-center justify-center w-full text-center uppercase gap-2 pb-2">
+            <p>
+                All rights reserved ©
+            </p>
+            <p>
+                <span className="text-[#26E8A0] font-bold">HETIC</span> students 2024
+            </p>
+          </div>
     </div>
   );
 };

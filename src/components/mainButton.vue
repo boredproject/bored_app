@@ -20,7 +20,12 @@
                       a 35,35 0 1,1 -70,0"
           />
         </defs>
-        <text font-weight="bold" font-size="7" letter-spacing="-0.12" font-family="'Inter', sans-serif">
+        <text
+          font-weight="bold"
+          font-size="7"
+          letter-spacing="-0.12"
+          font-family="'Inter', sans-serif"
+        >
           <textPath xlink:href="#circle">
             CLICK
             <tspan class="text-[#5E2BFF]">ME!</tspan>
@@ -40,6 +45,7 @@
     </div>
     <button
       class="absolute z-1 flex items-center justify-center bg-transparent text-white font-bold uppercase px-2 py-1 rounded-lg text-3xl border-4 border-white transform transition-all duration-300 hover:scale-125"
+      @click="playClick()"
     >
       BO<span class="text-[#5E2BFF]">RED</span>
       <svg
@@ -75,6 +81,22 @@
         />
       </svg>
     </button>
+    <audio id="bgAudio" autoplay controls volume="0.1" loop>
+      <source
+        src="https://bored-bucket.s3.eu-west-3.amazonaws.com/Wii+Menu+Music+1+Hour.mp4"
+        type="audio/mp3"
+      />
+      This was supposed to be the background music but your browser does not
+      support the audio element.
+    </audio>
+    <audio ref="audioClick" volume="0.5">
+      <source
+        src="https://bored-bucket.s3.eu-west-3.amazonaws.com/click.mp3"
+        type="audio/mp3"
+      />
+      This was supposed to be the click sound effect but your browser does not
+      support the audio element.
+    </audio>
   </div>
 </template>
 
@@ -85,4 +107,20 @@
   transform-origin: center;
   width: 100%;
 }
+
+audio {
+  display: none;
+}
 </style>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const audioClick = ref<HTMLAudioElement | null>(null)
+
+const playClick = () => {
+  if (audioClick.value) {
+    audioClick.value.play();
+  }
+}
+</script>

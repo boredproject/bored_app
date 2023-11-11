@@ -23,6 +23,7 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
+  cursor : url('./assets/WiiCursor.cur'), auto;
 }
 
 /* Wave for the footer */

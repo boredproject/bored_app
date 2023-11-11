@@ -7,8 +7,15 @@
             <path d="M28 22L0.999999 22M28 11.5L1 11.5M28 1L1 0.999999" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </div>
+    <audio ref="audioClick" volume="0.5">
+        <source
+          src="https://bored-bucket.s3.eu-west-3.amazonaws.com/click.mp3"
+          type="audio/mp3"
+        />
+        This was supposed to be the click sound effect but your browser does not
+        support the audio element.
+      </audio>
 </template>
-
 <script setup lang="ts">
 import { ref } from 'vue'
 

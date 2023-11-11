@@ -1,18 +1,85 @@
-# Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# BORED =)
 
-## Recommended IDE Setup
+Welcome to BORED - your go-to hub for smashing boredom with just one click! Our cutting-edge site streamlines your quest for exciting activities by bringing together a wide range of entertaining options. Just pick a few relevant criteria, like your location, the time you've got, and your personal preferences, then hit "Find Ideas." In a snap, our smart algorithm whips up a personalized list of thrilling activities, from local events to creative challenges, tailored to your unique tastes. No more dull moments, thanks to BORED.com, where the adventure kicks off with a simple click!
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support For `.vue` Imports in TS
+## Tech Stack
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+**Client:** ViteJS, VueJS, TailwindCSS, Typescript
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+**Server:** NodeJS, MySQL
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+**API:** GoogleMaps API
+
+
+## Acknowledgements
+
+ - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+ - [Awesome README](https://github.com/matiassingers/awesome-readme)
+ - [Git Copilot](https://github.com/features/copilot)
+
+
+## Installation
+
+Install BORED_App by downloading it directly throught Git.
+
+```bash
+  npm install
+  cd my-project
+```
+    
+## Features
+
+- Full SFX for the WebApp
+- Fullscreen mode
+- Cross platform
+- Mobile First
+
+
+## Google Maps API Reference
+
+#### Get all items
+
+```http
+  GET /api/items
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+#### Get item
+
+```http
+  GET /api/items/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+#### add(num1, num2)
+
+Takes two numbers and returns the sum.
+
+
+## Authors
+
+- [@ShammyWST](https://www.github.com/shammy-wst)
+- [@Samy951](https://www.github.com/Samy951)
+- [@TheKyyn](https://www.github.com/TheKyyn)
+- [@Wissem95](https://www.github.com/Wissem95)
+- [@Victorrchb](https://www.github.com/Victorrchb)
+- [@Fano435](https://www.github.com/Fano435)
+- [@jnsalxs](https://www.github.com/jnsalxs)
+
+
+
+
+## Roadmap
+
+- Additional browser support
+
+- Add more integrations
+

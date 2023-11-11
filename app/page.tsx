@@ -1,10 +1,6 @@
-
-import MainButton from './components/mainButton'
-
 const Home = () => {
   return (
     <>
-      <MainButton />
     </>
   )
 }

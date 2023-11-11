@@ -98,6 +98,11 @@
       support the audio element.
     </audio>
   </div>
+  <div class="fixed top-0 left-0 p-4 flex flex-row gap-6">
+    <button @click="toggleMuteAndPlay" class="bg-transparent border-4 border-white rounded-lg py-1 px-2 p-2 text-sm text-white uppercase hover:scale-125 transition-all duration-300">
+      {{ bgAudioVolume === 0 ? 'Unmute' : 'Mute' }}
+    </button>
+  </div>
 </template>
 
 <style>
@@ -114,13 +119,40 @@ audio {
 </style>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue';
 
-const audioClick = ref<HTMLAudioElement | null>(null)
+const audioClick = ref<HTMLAudioElement | null>(null);
+const bgAudio = ref<HTMLAudioElement | null>(null);
+const showButton1 = ref(true);
+const showButton2 = ref(false);
+const bgAudioVolume = ref(0.1);
 
 const playClick = () => {
   if (audioClick.value) {
     audioClick.value.play();
+    toggleButtons();
   }
-}
+};
+
+const toggleMuteAndPlay = () => {
+  toggleMute();
+  playClick();
+};
+
+const toggleButtons = () => {
+  showButton1.value = !showButton1.value;
+  showButton2.value = !showButton2.value;
+};
+
+const toggleMute = () => {
+  if (bgAudio.value) {
+    bgAudioVolume.value = bgAudioVolume.value === 0 ? 0.1 : 0;
+    bgAudio.value.volume = bgAudioVolume.value;
+  }
+};
+
+onMounted(() => {
+  // Lier l'élément audio avec l'id bgAudio à la référence bgAudio
+  bgAudio.value = document.getElementById('bgAudio') as HTMLAudioElement;
+});
 </script>

@@ -4,11 +4,11 @@ import React from "react";
 
 const NavAndMute = () => {
   return (
-    <nav className="flex flex-row w-full justify-between p-5 align-middle items-center fixed">
+    <nav className="flex flex-row w-full justify-between p-5 align-middle items-center fixed cursor">
       <div>
-        <button className="bg-transparent border-4 border-white rounded-lg py-1 px-2 p-2 text-sm text-white uppercase hover:scale-125 transition-all duration-300">
+        <div className="bg-transparent cursor border-4 border-white rounded-lg py-1 px-2 p-2 text-sm text-white uppercase cursor transition-transform transform-gpu active:scale-150">
             Mute
-        </button>
+        </div>
       </div>
       <div className="flex flex-row gap-5">
         <svg
@@ -35,9 +35,9 @@ const NavAndMute = () => {
           <path
             d="M28 22L0.999999 22M28 11.5L1 11.5M28 1L1 0.999999"
             stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>

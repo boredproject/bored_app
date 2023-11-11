@@ -1,16 +1,14 @@
-import SpinningText from "@/app/MainPage/SpinningText/SpinningText";
-import MainButton from "./MainPage/MainButton"
-import WaveFooter from "./MainPage/WaveFooter"
+import WaveFooter from "./MainPage/Footer/WaveFooter"
+import NavAndMute from "./MainPage/NavAndMute";
+import CtaMainpage from "./MainPage/CTA/CtaMainpage";
 
 
 const Home = () => {
   return (
     <>
-
-      <SpinningText/>
-    <MainButton />
-    <WaveFooter />
-
+      <NavAndMute />
+      <CtaMainpage />
+      <WaveFooter />
     </>
   )
 }

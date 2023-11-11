@@ -3,7 +3,7 @@ import styles from './SpinningText.module.css';
 const SpinningText = () => {
 
     return (
-        <div className="flex justify-center items-center h-screen relative max-h-full">
+        <div className="flex justify-center items-center h-screen">
             <div
                 className="absolute flex justify-center items-center transform transition-all duration-300 hover:scale-90"
             >

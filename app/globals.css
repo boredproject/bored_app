@@ -24,4 +24,6 @@ body {
   display: flex;
   flex-direction: column;
   cursor : url('./assets/WiiCursor.cur'), auto;
+  width: 100vw;
+  height: 100vh;
 }

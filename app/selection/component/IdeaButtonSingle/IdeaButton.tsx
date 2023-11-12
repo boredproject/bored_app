@@ -11,7 +11,7 @@ interface IdeaButtonProps {
 const IdeaButton: React.FC<IdeaButtonProps> = ({ type }) => {
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-72 h-72 bg-transparent border-4 border-[#5E2BFF] rounded-full flex items-center justify-center">
+      <div className="w-72 h-72 bg-transparent border-4 border-[#5E2BFF] rounded-full flex items-center justify-center hover:border-white hover:bg-[#5e2bff]">
         <ButtonSVG type={type} />
       </div>
     </div>

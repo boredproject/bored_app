@@ -43,3 +43,10 @@
       transform: translate3d(85px, 0, 0);
     }
   }
+
+  @media (max-width: 1024px) {
+    .waves {
+      margin-bottom: 0px;
+      min-height: 125px;
+    }
+  }

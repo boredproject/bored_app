@@ -5,7 +5,7 @@ const SpinningText = () => {
     <div className="flex justify-center items-center h-screen">
       <div className="absolute flex justify-center items-center transform transition-all duration-300 hover:scale-90">
         <svg
-          className="animate-spin-slow hover:animate-spin-medium transition-all"
+          className="md:animate-spin-slow md:hover:animate-spin-medium transition-all"
           id="skyrim"
           viewBox="0 0 100 100"
           width="400"

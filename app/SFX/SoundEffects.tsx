@@ -27,7 +27,7 @@ const SoundEffects = () => {
     <div>
       <audio ref={backgroundMusicRef} autoPlay>
         <source
-          src="https://bored-bucket.s3.eu-west-3.amazonaws.com/Wii+Menu+Music+1+Hour.mp4"
+          src="https://bored-bucket.s3.eu-west-3.amazonaws.com/Ps4+Intro+1+Hour.mp3"
           type="audio/mp3"
         />
         This was supposed to be the background music but your browser does not

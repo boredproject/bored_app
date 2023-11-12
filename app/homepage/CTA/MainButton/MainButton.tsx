@@ -21,7 +21,7 @@ const MainButton: React.FC = () => {
   return (
     <div className="flex justify-center items-center">
         <div
-        className={`fixed z-1 flex items-center justify-center bg-transparent text-white font-bold uppercase px-2 py-1 rounded-lg text-3xl border-4 border-white transform transition-transform duration-300 ease-in-out ${isClicked ? "scale-150" : "hover:scale-125"}`}
+        className={`z-1 flex items-center justify-center bg-transparent text-white font-bold uppercase px-2 py-1 rounded-lg text-3xl border-4 border-white transform transition-transform duration-300 ease-in-out ${isClicked ? "scale-150" : "hover:scale-125"}`}
         onMouseDown={handleMouseDown}
       >
         <div></div>

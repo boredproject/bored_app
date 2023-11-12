@@ -10,7 +10,7 @@ const CtaMainpage = () => {
       <div>
         <SpinningText />
       </div>
-      <div>
+      <div className="fixed">
         <MainButton />
       </div>
     </div>

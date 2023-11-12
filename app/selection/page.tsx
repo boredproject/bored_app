@@ -1,11 +1,10 @@
 import React from 'react'
-import SelectionPage from './SelectionPage'
+import SelectionPage from './selection page/SelectionPage'
 
 const OptionPage = () => {
   return (
         <>
             <SelectionPage />
-            
         </>
   )
 }

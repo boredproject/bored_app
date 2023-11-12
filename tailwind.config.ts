@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
+        'spin-very-slow': 'spin 20s linear infinite',
         'spin-slow': 'spin 10s linear infinite',
         'spin-medium': 'spin 3s linear infinite',
         'bounce-slow': 'bounce 3s infinite',

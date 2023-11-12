@@ -26,4 +26,8 @@ body {
   width: 100vw;
   height: 100vh;
   cursor: url("./assets/WiiCursor.cur"), pointer;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }

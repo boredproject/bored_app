@@ -4,7 +4,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 #app {
@@ -13,10 +13,9 @@
 }
 
 ::selection {
-  background-color: #5E2BFF;
-  color: #26E8A0;
+  background-color: #5e2bff;
+  color: #26e8a0;
 }
-
 
 body {
   background-color: #181818;
@@ -25,6 +24,6 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  cursor : url('./assets/WiiCursor.cur'), auto;
-  cursor: url('./assets/WiiCursor.cur'), pointer;
+  cursor: url("./assets/WiiCursor.cur"), auto;
+  cursor: url("./assets/WiiCursor.cur"), pointer;
 }

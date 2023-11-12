@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BORED =)
 
-## Getting Started
+Welcome to BORED - your go-to hub for smashing boredom with just one click! Our cutting-edge site streamlines your quest for exciting activities by bringing together a wide range of entertaining options. Just pick a few relevant criteria, like your location, the time you've got, and your personal preferences, then hit "Find Ideas." In a snap, our smart algorithm whips up a personalized list of thrilling activities, from local events to creative challenges, tailored to your unique tastes. No more dull moments, thanks to BORED.com, where the adventure kicks off with a simple click!
 
-First, run the development server:
+## Tech Stack
+
+**Client:** ViteJS, VueJS, TailwindCSS, Typescript
+
+**Server:** NodeJS, MySQL
+
+**API:** GoogleMaps API
+
+
+## Acknowledgements
+
+ - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+ - [Awesome README](https://github.com/matiassingers/awesome-readme)
+ - [Git Copilot](https://github.com/features/copilot)
+
+
+## Installation
+
+Install BORED_App by downloading it directly throught Git.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm install
+  cd my-project
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Full SFX for the WebApp
+- Fullscreen mode
+- Cross platform
+- Mobile First
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Google Maps API Reference
 
-To learn more about Next.js, take a look at the following resources:
+#### Get all items
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```http
+  GET /api/items
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
 
-## Deploy on Vercel
+#### Get item
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```http
+  GET /api/items/${id}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
+
+#### add(num1, num2)
+
+Takes two numbers and returns the sum.
+
+
+## Authors
+
+- [@ShammyWST](https://www.github.com/shammy-wst)
+- [@Samy951](https://www.github.com/Samy951)
+- [@TheKyyn](https://www.github.com/TheKyyn)
+- [@Wissem95](https://www.github.com/Wissem95)
+- [@Victorrchb](https://www.github.com/Victorrchb)
+- [@Fano435](https://www.github.com/Fano435)
+- [@jnsalxs](https://www.github.com/jnsalxs)
+
+
+
+
+## Roadmap
+
+- Additional browser support
+
+- Add more integrations

@@ -4,7 +4,7 @@ import React from "react";
 
 type SVGType = "svg1" | "svg2" | "svg3";
 
-interface MySVGComponentProps {
+interface ButtonSVGProps {
   type: SVGType;
 }
 
@@ -54,7 +54,7 @@ const svg3 = (
   </svg>
 );
 
-const MySVGComponent: React.FC<MySVGComponentProps> = ({ type }) => {
+const MySVGComponent: React.FC<ButtonSVGProps> = ({ type }) => {
   let svgContent;
 
   switch (type) {

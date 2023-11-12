@@ -5,9 +5,8 @@ import React from "react";
 import ButtonSVG from "../IdeaButtonSVG/ButtonSVG";
 import SpinnerButtonSVG from "../SpinnerButtonSVG/SpinnerButtonSVG";
 
-
 interface IdeaButtonProps {
-  type: "svg1" | "svg2" | "svg3" ; // Ajoutez cette ligne pour définir la prop type
+  type: "svg1" | "svg2" | "svg3";
   textspin: "spinnersvg1" | "spinnersvg2" | "spinnersvg3";
 }
 

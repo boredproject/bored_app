@@ -1,0 +1,10 @@
+#skyrim {
+  fill: currentColor;
+  max-width: 100%;
+  transform-origin: center;
+  width: 100%;
+}
+
+.customColor {
+  fill: #5e2bff;
+}

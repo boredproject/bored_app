@@ -58,7 +58,7 @@ const Loader = () => {
           Icham , Samy , Victor , Alexis , Wissem , Maxime , Jean
         </p>
         <p className="normal-case">SFX can be found at</p>
-        <p className="pb-20 lowercase">www.nintendo.com/healthsafety/</p>
+        <p className="pb-20 lowercase">https://github.com/boredproject</p>
         <p className="animate-bounce-slow">
           Press
           <span className="bg-transparent border-2 border-white text-white p-2 rounded-full">

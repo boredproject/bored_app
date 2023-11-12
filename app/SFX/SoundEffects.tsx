@@ -16,10 +16,12 @@ const SoundEffects = () => {
 
     // Add a click event listener to the document to initiate audio playback
     document.addEventListener("click", playBackgroundMusic);
+    document.addEventListener("keypress",playBackgroundMusic);
 
     return () => {
       // Clean up the event listener when the component is unmounted
       document.removeEventListener("click", playBackgroundMusic);
+      document.addEventListener("keypress",playBackgroundMusic);
     };
   }, []); 
 

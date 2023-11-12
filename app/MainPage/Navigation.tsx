@@ -2,10 +2,10 @@
 
 import React from "react";
 
-const NavAndMute = () => {
+const Navigation = () => {
   return (
-    <nav className="flex flex-row w-full justify-between p-5 align-middle items-center fixed cursor">
-      <div>
+    <nav className="flex flex-row w-full justify-end p-5 align-middle items-center fixed cursor">
+      <div className="hidden">
         <div className="bg-transparent cursor border-4 border-white rounded-lg py-1 px-2 p-2 text-sm text-white uppercase cursor transition-transform transform-gpu active:scale-150">
             Mute
         </div>
@@ -45,4 +45,4 @@ const NavAndMute = () => {
   );
 };
 
-export default NavAndMute;
+export default Navigation;

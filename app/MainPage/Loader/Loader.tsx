@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import WaveFooter from "../Footer/WaveFooter";
 
 const Loader = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -32,7 +33,7 @@ const Loader = () => {
   }, []);
 
   return (
-    <div className={`fixed w-full h-full bg-black flex flex-col justify-center items-center transition-opacity duration-2000 ease-out ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <div className={`fixed z-40 w-full h-full bg-black flex flex-col justify-center items-center transition-opacity duration-2000 ease-out ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className="max-w-screen-md mx-auto text-center uppercase font-bold text-2xl opacity-100">
         <div className="flex flex-row gap-2 justify-center align-middle text-center">
           <svg
@@ -67,6 +68,7 @@ const Loader = () => {
           to continue
         </p>
       </div>
+      <WaveFooter />
     </div>
   );
 };

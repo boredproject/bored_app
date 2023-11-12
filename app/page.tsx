@@ -1,20 +1,11 @@
-import WaveFooter from "./MainPage/Footer/WaveFooter"
-import Navigation from "./MainPage/Navigation";
-import CtaMainpage from "./MainPage/CTA/CtaMainpage";
-import SoundEffects from "./SFX/SoundEffects";
-import Loader from "./MainPage/Loader";
-
+import MainPage from "./MainPage/MainPage";
 
 const Home = () => {
   return (
     <>
-      <Navigation />
-      <CtaMainpage />
-      <WaveFooter />
-      <SoundEffects />
-      <Loader />
+      <MainPage />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

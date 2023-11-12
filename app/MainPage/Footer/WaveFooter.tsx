@@ -5,7 +5,7 @@ import "./wave.css";
 
 const WaveFooter = () => {
   return (
-    <div className="absolute bottom-0 w-full z-50">
+    <div className="w-full z-50">
         <svg
           className="waves"
           xmlns="http://www.w3.org/2000/svg"

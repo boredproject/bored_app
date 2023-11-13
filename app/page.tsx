@@ -1,9 +1,9 @@
-import MainPage from "./homepage/MainPage";
+import HomePage from "./homepage/HomePage";
 
 const Home = () => {
   return (
     <>
-      <MainPage />
+      <HomePage />
     </>
   );
 };

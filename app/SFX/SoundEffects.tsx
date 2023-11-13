@@ -27,7 +27,7 @@ const SoundEffects = () => {
 
   return (
     <div>
-      <audio ref={backgroundMusicRef} autoPlay>
+      <audio ref={backgroundMusicRef}>
         <source
           src="https://bored-bucket.s3.eu-west-3.amazonaws.com/Ps4+Intro+1+Hour.mp3"
           type="audio/mp3"

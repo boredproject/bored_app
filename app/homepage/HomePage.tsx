@@ -5,7 +5,7 @@ import CtaMainpage from "./CTA/CtaMainpage";
 import SoundEffects from "../SFX/SoundEffects";
 import Loader from "./Loader/Loader";
 
-const MainPage = () => {
+const HomePage = () => {
   return (
     <div>
         <WaveFooter />
@@ -17,4 +17,4 @@ const MainPage = () => {
   )
 }
 
-export default MainPage
+export default HomePage;

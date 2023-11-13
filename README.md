@@ -64,13 +64,13 @@ Takes two numbers and returns the sum.
 
 ## Authors
 
-- [@ShammyWST](https://www.github.com/shammy-wst)
-- [@Samy951](https://www.github.com/Samy951)
-- [@TheKyyn](https://www.github.com/TheKyyn)
-- [@Wissem95](https://www.github.com/Wissem95)
-- [@Victorrchb](https://www.github.com/Victorrchb)
-- [@Fano435](https://www.github.com/Fano435)
-- [@jnsalxs](https://www.github.com/jnsalxs)
+- [@ShammyWST](https://www.github.com/shammy-wst) LeadDev FrontEnd Integrator
+- [@Samy951](https://www.github.com/Samy951) LeadDev FrontEnd
+- [@TheKyyn](https://www.github.com/TheKyyn) Backend
+- [@Wissem95](https://www.github.com/Wissem95) Backend
+- [@Victorrchb](https://www.github.com/Victorrchb) FrontEnd
+- [@Fano435](https://www.github.com/Fano435) Backend
+- [@jnsalxs](https://www.github.com/jnsalxs) FrontEnd & BackEnd
 
 
 

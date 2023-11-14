@@ -3,6 +3,7 @@
 import React from "react";
 import SpinningText from "./SpinningText/SpinningText";
 import MainButton from "./MainButton/MainButton";
+import Link from "next/link";
 
 const CtaMainpage = () => {
   return (
@@ -11,7 +12,9 @@ const CtaMainpage = () => {
         <SpinningText />
       </div>
       <div className="fixed">
-        <MainButton />
+        <Link href="/selection">
+          <MainButton />
+        </Link>
       </div>
     </div>
   );

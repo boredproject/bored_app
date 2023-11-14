@@ -8,11 +8,11 @@ import Link from "next/link";
 const Navigation = () => {
   return (
     <div className="flex justify-center">
-      <nav className="flex items-center justify-between mx-auto p-5 fixed cursor w-screen">
+      <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen">
         <div className="flex flex-row">
-        <Link href="/">
-          <MainButton />
-        </Link>
+          <Link href="/">
+            <MainButton />
+          </Link>
         </div>
         <div className="flex flex-row">
           <svg

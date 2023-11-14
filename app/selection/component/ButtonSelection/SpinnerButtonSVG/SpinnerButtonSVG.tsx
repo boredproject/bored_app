@@ -11,7 +11,7 @@ interface MySVGComponentProps {
 
 const spinnersvg1 = (
   <svg
-    className="md:animate-spin-very-slow transition-all"
+    className="lg:animate-spin-very-slow transition-all"
     id="skyrim"
     viewBox="0 0 100 100"
     width="400"
@@ -54,7 +54,7 @@ const spinnersvg1 = (
 
 const spinnersvg2 = (
   <svg
-    className="md:animate-spin-very-slow transition-all"
+    className="lg:animate-spin-very-slow transition-all"
     id="skyrim"
     viewBox="0 0 100 100"
     width="400"
@@ -91,7 +91,7 @@ const spinnersvg2 = (
 
 const spinnersvg3 = (
   <svg
-    className="md:animate-spin-very-slow transition-all"
+    className="lg:animate-spin-very-slow transition-all"
     id="skyrim"
     viewBox="0 0 100 100"
     width="400"

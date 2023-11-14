@@ -1,4 +1,3 @@
-import React from 'react'
 import WaveFooter from "./Footer/WaveFooter";
 import Navigation from "./Navigation/Navigation";
 import CtaMainpage from "./CTA/CtaMainpage";

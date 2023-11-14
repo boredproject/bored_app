@@ -3,13 +3,16 @@
 import React from "react";
 import Image from "next/image";
 import MainButton from "../CTA/MainButton/MainButton";
+import Link from "next/link";
 
 const Navigation = () => {
   return (
     <div className="flex justify-center">
       <nav className="flex items-center justify-between mx-auto p-5 fixed cursor w-screen">
         <div className="flex flex-row">
+        <Link href="/">
           <MainButton />
+        </Link>
         </div>
         <div className="flex flex-row">
           <svg

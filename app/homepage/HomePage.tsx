@@ -10,8 +10,8 @@ const HomePage = () => {
     <div>
         <WaveFooter />
         <Loader />
+
         <Navigation />
-        <DropdownMenuProfile />
         <CtaMainpage />
         <SoundEffects />
     </div>

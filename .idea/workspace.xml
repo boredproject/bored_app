@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0dc89-4d4c-482a-944b-d7f2093b0cda" name="Changes" comment="feat: spinningText">
-      <change afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropdownMenu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/bored_app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/homepage/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropdownMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropdownMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Navigation.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,13 +72,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Wissem",
+    "git-widget-placeholder": "main__branch",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\wisse\\WebstormProjects\\Wissem-portfolio\\bored\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\wisse\\Documents\\GitHub\\bored_app\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

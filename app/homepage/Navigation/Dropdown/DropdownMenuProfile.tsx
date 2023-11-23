@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import ProfileImage from '../../../assets/AvatarDefault.png';
 import Image from 'next/image';// Interface pour définir la structure des données du profil
 
+
 interface DropdownMenuProfileProps {
     isOpen: boolean;
     toggleDropdown: () => void;
@@ -269,3 +270,14 @@ const DropdownMenuProfile: React.FC<DropdownMenuProfileProps> = ({ isOpen, toggl
 };
 
 export default DropdownMenuProfile;
+
+
+
+
+
+
+
+
+
+
+

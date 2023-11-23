@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import MainButton from "../CTA/MainButton/MainButton";
 import Link from "next/link";
-import DropdownMenuProfile from "@/app/homepage/Navigation/Dropdown/DropdownMenu";
+import DropdownMenuProfile from "@/app/homepage/Navigation/Dropdown/DropdownMenuProfile";
+import DropdownMenuLogin from "@/app/homepage/Navigation/Dropdown/DropDownMenuLogin";
 
 const Navigation = () => {
   const [estDropdownProfileOuvert, setEstDropdownProfileOuvert] = useState(false);
@@ -42,7 +43,7 @@ const Navigation = () => {
             </svg>
           </div>
         </nav>
-        {estDropdownProfileOuvert && <DropdownMenuProfile isOpen={estDropdownProfileOuvert} toggleDropdown={fermerDropdownProfile} />}
+        {estDropdownProfileOuvert && <DropdownMenuLogin isOpen={estDropdownProfileOuvert} toggleDropdown={fermerDropdownProfile} />}
 
       </div>
   );

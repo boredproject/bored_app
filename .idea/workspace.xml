@@ -5,18 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0dc89-4d4c-482a-944b-d7f2093b0cda" name="Changes" comment="feat: spinningText">
-      <change afterPath="$PROJECT_DIR$/app/MainPage/SpinningText/SpinningText.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/MainPage/SpinningText/SpinningText.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/historic/component/HistoricTable.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/historic/historic page/HistoricPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/historic/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropDownMenuLogin.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/ParentComponent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/homepage/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropdownMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropdownMenuProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Navigation.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -56,7 +65,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -72,18 +81,19 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;spinningText&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Wissem&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/samyhamlat/workstation/projet-perso/bored_app/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\wisse\\Documents\\GitHub\\bored_app\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\wisse\Documents\GitHub\bored_app\app\historic" />
       <recent name="$PROJECT_DIR$/app/MainPage/SpinningText" />
     </key>
   </component>
@@ -101,6 +111,14 @@
       <workItem from="1699737211056" duration="71000" />
       <workItem from="1699737323931" duration="57000" />
       <workItem from="1699737390616" duration="1027000" />
+      <workItem from="1700010305551" duration="794000" />
+      <workItem from="1700666021262" duration="116000" />
+      <workItem from="1700666146609" duration="63000" />
+      <workItem from="1700666219574" duration="24000" />
+      <workItem from="1700666255022" duration="8667000" />
+      <workItem from="1700692256798" duration="678000" />
+      <workItem from="1700697391985" duration="235000" />
+      <workItem from="1700753719760" duration="5032000" />
     </task>
     <servers />
   </component>

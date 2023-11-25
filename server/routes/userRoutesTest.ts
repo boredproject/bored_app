@@ -1,18 +1,24 @@
-// // server/tests/routes/userRoutes.test.ts
-// import { expect } from 'chai';
-// import { describe, it } from 'mocha'; // Ces imports sont spécifiques à Mocha
-// import request from 'supertest';
-// import { app } from '../../app'; // Assurez-vous d'exporter votre application Express depuis le fichier app.js ou app.ts
+const express = require('express');
+const router = express.Router();
+const authenticateToken = require('../middleware/authenticateToken');
+const User = require('../models/user'); // Assurez-vous que ce chemin est correct
 
-// describe('User Routes', () => {
-//   it('should get user data', async () => {
-//     const response = await request(app).get('/user');
+// Route pour obtenir les informations du profil utilisateur
+router.get('/profile', authenticateToken, async (req, res) => {
+    try {
+        // L'ID de l'utilisateur peut être obtenu à partir de req.user, qui est défini dans le middleware
+        const user = await User.findById(req.user.userId); 
 
-//     expect(response.status).to.equal(200);
-//     expect(response.body).to.deep.equal({
-//       id: 1,
-//       username: 'john_doe',
-//       email: 'john.doe@example.com',
-//     });
-//   });
-// });
+        if (!user) {
+            return res.status(404).json({ message: "Utilisateur non trouvé" });
+        }
+
+        res.json({ email: user.email, username: user.username }); // Envoie des informations pertinentes
+    } catch (error) {
+        res.status(500).json({ message: "Erreur serveur" });
+    }
+});
+
+// Autres routes protégées peuvent être ajoutées ici
+
+module.exports = router;

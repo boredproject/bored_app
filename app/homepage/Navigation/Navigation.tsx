@@ -1,9 +1,6 @@
 "use client"
 import React, { useState } from "react";
-import Image from "next/image";
 import MainButton from "../CTA/MainButton/MainButton";
-import Link from "next/link";
-import DropdownMenuProfile from "@/app/homepage/Navigation/Dropdown/DropdownMenuProfile";
 import DropdownMenuLogin from "@/app/homepage/Navigation/Dropdown/DropDownMenuLogin";
 
 const Navigation = () => {
@@ -17,13 +14,18 @@ const Navigation = () => {
     setEstDropdownProfileOuvert(false);
   };
 
+  // Fonction personnalisée pour gérer le clic sur le bouton dans la navigation
+  const handleNavigationButtonClick = () => {
+    // Rediriger vers la page d'accueil (/)
+    window.location.href = "/";
+  };
+
+
   return (
       <div className="flex justify-center">
         <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen">
-          <div className="flex flex-row">
-            <Link href="/">
-              <MainButton />
-            </Link>
+          <div className="flex flex-row" onClick={handleNavigationButtonClick}>
+            <MainButton  />
           </div>
           <div className="flex flex-row">
             <svg

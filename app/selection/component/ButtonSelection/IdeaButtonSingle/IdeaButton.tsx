@@ -16,9 +16,9 @@ const IdeaButton: React.FC<IdeaButtonProps> = ({ type, textspin }) => {
       <div className="fixed">
         <SpinnerButtonSVG type={textspin} />
       </div>
-      <div className="w-64 h-64 bg-transparent border-4 border-[#5E2BFF] rounded-full flex items-center justify-center lg:hover:border-white hover:bg-[#5e2bff] duration-500 fixed">
-        <ButtonSVG type={type} />
-      </div>
+        <div className="w-64 h-64 bg-transparent border-4 border-[#5E2BFF] rounded-full flex items-center justify-center lg:hover:border-white hover:bg-[#5e2bff] duration-500 fixed">
+          <ButtonSVG type={type} />
+        </div>
     </div>
   );
 };

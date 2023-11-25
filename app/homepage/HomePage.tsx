@@ -3,6 +3,7 @@ import Navigation from "./Navigation/Navigation";
 import CtaMainpage from "./CTA/CtaMainpage";
 import SoundEffects from "../SFX/SoundEffects";
 import Loader from "./Loader/Loader";
+import React from "react";
 
 
 const HomePage = () => {

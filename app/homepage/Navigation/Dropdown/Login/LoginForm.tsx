@@ -78,7 +78,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         />
       </svg>
 
-      <p className="text-xs mb-6">Login/Register</p>
+      <p className="text-xs mb-6">Login</p>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -106,13 +106,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
         {error && <p>{error}</p>}
       </form>
       <div className="flex justify-between gap-6">
-        <button
-          className="text-white"
-        ></button>
-        <p onClick={() => toggleRegisterView && toggleRegisterView()
-        }
-        className="flex justify-start hover:underline text-xs hover:text-[#5E2BFF]"
-        >Register</p>
+        <button className="text-white"></button>
+        <p
+          onClick={() => toggleRegisterView && toggleRegisterView()}
+          className="flex justify-start hover:underline text-xs hover:text-[#5E2BFF]"
+        >
+          Register
+        </p>
       </div>
     </div>
   );

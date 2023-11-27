@@ -7,19 +7,26 @@ const ProductPage: React.FC = () => {
     const [restaurants, setRestaurants] = useState<string[] | null>(null);
   
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          // Use the api module to fetch restaurants based on location
-          const location = await getUserLocation(); // Implement getUserLocation function
-          const response = await api.getRestaurants(location.latitude, location.longitude);
-          setRestaurants(response.data);
-        } catch (error) {
-          console.error('Error fetching data', error);
-        }
-      };
-  
-      fetchData();
-    }, []);
+        const fetchData = async () => {
+          try {
+            // Use the api module to fetch restaurants based on location
+            const location = await getUserLocation(); // Implement getUserLocation function
+            const response = await api.getRestaurants(location.latitude, location.longitude);
+            
+            // Check if response is an array of strings
+            if (Array.isArray(response)) {
+              setRestaurants(response);
+            } else {
+              console.error('Invalid response format', response);
+            }
+          } catch (error) {
+            console.error('Error fetching data', error);
+          }
+        };
+      
+        fetchData();
+      }, []);
+      
   
     const getUserLocation = async () => {
       // Simulate fetching user location

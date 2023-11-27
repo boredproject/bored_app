@@ -1,26 +1,45 @@
-// api.ts
 import axios, { AxiosResponse } from 'axios';
-import MockAdapter from 'axios-mock-adapter';
+import {
+  PlacesNearbyRequest,
+  PlacesNearbyResponse,
+  PlacesNearbyResponseData,
+  Client,
+} from '@googlemaps/google-maps-services-js';
 
-const mock = new MockAdapter(axios);
+const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
-// Example: Mocking a GET request for restaurants based on location
-mock.onGet('/api/restaurants').reply(200, { data: ['Restaurant 1', 'Restaurant 2'] });
+if (!apiKey) {
+  throw new Error('Google Maps API key is missing. Please provide a valid API key.');
+}
 
-// Define the data structure for your API response
-interface RestaurantResponse {
-  data: string[];
+const client = new Client({});
+
+interface CustomAxiosResponse<T> extends AxiosResponse {
+  data: T;
 }
 
 const api = {
-  // Function to fetch restaurants based on location
-  getRestaurants: async (latitude: number, longitude: number): Promise<RestaurantResponse> => {
+  getRestaurants: async (latitude: number, longitude: number): Promise<string[]> => {
     try {
-      // Simulate an asynchronous API call
-      const response: AxiosResponse<RestaurantResponse> = await axios.get('/api/restaurants', {
-        params: { latitude, longitude },
-      });
-      return response.data;
+      const request: PlacesNearbyRequest = {
+        params: {
+          location: `${latitude},${longitude}`,
+          radius: 500,
+          type: 'restaurant',
+          key: apiKey,
+        },
+      };
+
+      const response: CustomAxiosResponse<PlacesNearbyResponseData> = await client.placesNearby(request);
+
+      // Check if 'results' property exists in the response data
+      if (response.data && 'results' in response.data) {
+        // Extract restaurant names from the response and filter out undefined values
+        const restaurantNames = response.data.results.map((result) => result.name).filter((name) => name !== undefined) as string[];
+        return restaurantNames;
+      } else {
+        throw new Error('Results property not found in the API response');
+      }
     } catch (error) {
       console.error('Error fetching restaurants', error);
       throw error;

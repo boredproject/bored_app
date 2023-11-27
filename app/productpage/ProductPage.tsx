@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import IdeaButton from "../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton";
-import { Client, PlacesNearbyRequest, PlacesNearbyResponse } from "@googlemaps/google-maps-services-js";
 import api from "../api/api"
+import axios from "axios";
 
 const ProductPage: React.FC = () => {
     const [restaurants, setRestaurants] = useState<string[] | null>(null);

@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import MainButton from "../CTA/MainButton/MainButton";
 import Link from "next/link";
-import DropdownMenuProfile from "@/app/homepage/Navigation/Dropdown/DropdownMenuProfile";
-import DropdownMenuLogin from "@/app/homepage/Navigation/Dropdown/DropDownMenuLogin";
+import LoginForm from "./Dropdown/Login/LoginForm";
+import RegisterForm from "./Dropdown/Register/RegisterForm";
 
 const Navigation = () => {
   const [estDropdownProfileOuvert, setEstDropdownProfileOuvert] = useState(false);
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
 
   const basculerDropdownProfile = () => {
     setEstDropdownProfileOuvert(!estDropdownProfileOuvert);
@@ -17,6 +18,10 @@ const Navigation = () => {
     setEstDropdownProfileOuvert(false);
   };
 
+  const handleRegisterView = () => {
+    fermerDropdownProfile();
+    setShowRegisterForm(true);
+  };
   return (
       <div className="flex justify-center">
         <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen">
@@ -43,8 +48,19 @@ const Navigation = () => {
             </svg>
           </div>
         </nav>
-        {estDropdownProfileOuvert && <DropdownMenuLogin isOpen={estDropdownProfileOuvert} toggleDropdown={fermerDropdownProfile} />}
-
+        {estDropdownProfileOuvert && !showRegisterForm && (
+            <LoginForm
+                isOpen={estDropdownProfileOuvert}
+                toggleDropdown={fermerDropdownProfile}
+                toggleRegisterView={handleRegisterView} // Utilisez la nouvelle fonction ici
+            />
+        )}
+        {showRegisterForm && (
+            <RegisterForm
+                isOpen={estDropdownProfileOuvert}
+                toggleDropdown={() => setShowRegisterForm(false)} // Fermer le formulaire d'inscription
+            />
+        )}
       </div>
   );
 };

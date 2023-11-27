@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0dc89-4d4c-482a-944b-d7f2093b0cda" name="Changes" comment="feat: spinningText">
-      <change afterPath="$PROJECT_DIR$/app/historic/component/HistoricTable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/historic/historic page/HistoricPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/historic/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropDownMenuLogin.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/ParentComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/AuthContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/homepage/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropdownMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropdownMenuProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/historic/component/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/Login/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/historic/component/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/Register/RegisterForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropDownMenuLogin.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/DropdownMenuProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/Profil/DropdownMenuProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Dropdown/ParentComponent.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/homepage/Navigation/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/homepage/Navigation/Navigation.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,12 +44,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="spinningText" />
-                    <option name="lastUsedInstant" value="1699734702" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="nextjs_transition" />
-                    <option name="lastUsedInstant" value="1699734701" />
+                    <option name="branchName" value="main_branch" />
+                    <option name="lastUsedInstant" value="1700941225" />
                   </RecentBranch>
                 </list>
               </option>
@@ -81,7 +76,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Wissem&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main__branch&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -93,6 +88,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\wisse\Documents\GitHub\bored_app\app\homepage\Navigation\Dropdown\Profil" />
+      <recent name="C:\Users\wisse\Documents\GitHub\bored_app\app\homepage\Navigation\Dropdown\Register" />
+      <recent name="C:\Users\wisse\Documents\GitHub\bored_app\app\homepage\Navigation\Dropdown\Login" />
       <recent name="C:\Users\wisse\Documents\GitHub\bored_app\app\historic" />
       <recent name="$PROJECT_DIR$/app/MainPage/SpinningText" />
     </key>
@@ -119,6 +117,7 @@
       <workItem from="1700692256798" duration="678000" />
       <workItem from="1700697391985" duration="235000" />
       <workItem from="1700753719760" duration="5032000" />
+      <workItem from="1701073185944" duration="6343000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 interface LoginFormProps {
   isOpen: boolean;
@@ -16,7 +15,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();

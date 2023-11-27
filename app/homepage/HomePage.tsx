@@ -11,7 +11,6 @@ const HomePage = () => {
     <div>
         <WaveFooter />
         <Loader />
-
         <Navigation />
         <CtaMainpage />
         <SoundEffects />

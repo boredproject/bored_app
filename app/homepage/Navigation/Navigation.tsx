@@ -1,10 +1,13 @@
 "use client"
 import React, { useState } from "react";
 import MainButton from "../CTA/MainButton/MainButton";
-import DropdownMenuLogin from "@/app/homepage/Navigation/Dropdown/DropDownMenuLogin";
+import Link from "next/link";
+import LoginForm from "./Dropdown/Login/LoginForm";
+import RegisterForm from "./Dropdown/Register/RegisterForm";
 
 const Navigation = () => {
   const [estDropdownProfileOuvert, setEstDropdownProfileOuvert] = useState(false);
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
 
   const basculerDropdownProfile = () => {
     setEstDropdownProfileOuvert(!estDropdownProfileOuvert);
@@ -14,18 +17,18 @@ const Navigation = () => {
     setEstDropdownProfileOuvert(false);
   };
 
-  // Fonction personnalisée pour gérer le clic sur le bouton dans la navigation
-  const handleNavigationButtonClick = () => {
-    // Rediriger vers la page d'accueil (/)
-    window.location.href = "/";
+  const handleRegisterView = () => {
+    fermerDropdownProfile();
+    setShowRegisterForm(true);
   };
 
-
-  return (
+return (
       <div className="flex justify-center">
         <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen">
-          <div className="flex flex-row" onClick={handleNavigationButtonClick}>
-            <MainButton  />
+          <div className="flex flex-row">
+            <Link href="/">
+              <MainButton />
+            </Link>
           </div>
           <div className="flex flex-row">
             <svg
@@ -45,8 +48,19 @@ const Navigation = () => {
             </svg>
           </div>
         </nav>
-        {estDropdownProfileOuvert && <DropdownMenuLogin isOpen={estDropdownProfileOuvert} toggleDropdown={fermerDropdownProfile} />}
-
+        {estDropdownProfileOuvert && !showRegisterForm && (
+            <LoginForm
+                isOpen={estDropdownProfileOuvert}
+                toggleDropdown={fermerDropdownProfile}
+                toggleRegisterView={handleRegisterView} // Utilisez la nouvelle fonction ici
+            />
+        )}
+        {showRegisterForm && (
+            <RegisterForm
+                isOpen={estDropdownProfileOuvert}
+                toggleDropdown={() => setShowRegisterForm(false)} // Fermer le formulaire d'inscription
+            />
+        )}
       </div>
   );
 };

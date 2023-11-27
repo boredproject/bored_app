@@ -21,7 +21,8 @@ const Navigation = () => {
     fermerDropdownProfile();
     setShowRegisterForm(true);
   };
-  return (
+
+return (
       <div className="flex justify-center">
         <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen">
           <div className="flex flex-row">

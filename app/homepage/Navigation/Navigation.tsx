@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from "react";
-import Image from "next/image";
 import MainButton from "../CTA/MainButton/MainButton";
 import Link from "next/link";
 import LoginForm from "./Dropdown/Login/LoginForm";

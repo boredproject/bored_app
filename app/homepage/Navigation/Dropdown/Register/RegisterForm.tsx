@@ -102,7 +102,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ isOpen, toggleDropdown }) =
 <div className="flex justify-between gap-6">
 <button type="submit"
 className="bg-[#5E2BFF] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
->S'inscrire</button>
+>S&apos;inscrire</button>
       <p className="text-xs hover:underline hover:text-[#5E2BFF]">Already have an account?</p>
       {error && <p>{error}</p>}
 </div>

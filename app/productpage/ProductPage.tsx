@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import IdeaButton from "../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton";
-import { Client, PlacesNearbyRequest, PlacesNearbyResponse } from "@googlemaps/google-maps-services-js";
 import api from "../api/api"
 
 const ProductPage: React.FC = () => {

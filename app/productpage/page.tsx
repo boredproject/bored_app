@@ -5,10 +5,10 @@ import ProductPage from "./ProductPage";
 import Navigation from "../homepage/Navigation/Navigation";
 import WaveFooter from "../homepage/Footer/WaveFooter";
 
-const ProdPage = () => {
+const ProdPage = ({ restaurants }: { restaurants: string[] }) => {
   return <div>
     <Navigation />
-    <ProductPage />
+    <ProductPage restaurants={restaurants} />
     <WaveFooter />
   </div>;
 };

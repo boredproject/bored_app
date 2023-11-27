@@ -1,66 +1,76 @@
 // api.ts
-import {
-  PlacesNearbyRequest,
-  PlacesNearbyResponseData,
-  Client,
-} from '@googlemaps/google-maps-services-js';
-
-const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
-if (!apiKey) {
-  throw new Error('Google Maps API key is missing. Please provide a valid API key.');
+interface PlacesNearbyRequest {
+  params: {
+    location: string;
+    radius: number;
+    type: string;
+    key: string;
+  };
 }
 
-const client = new Client({});
+interface PlacesNearbyResponseData {
+  results: {
+    name: string;
+    // Add other properties as needed
+  }[];
+  // Add other properties as needed
+}
 
-const api = {
-  getRestaurants: async (latitude: number, longitude: number): Promise<string[]> => {
-    try {
-      const request: PlacesNearbyRequest = {
-        params: {
-          location: `${latitude},${longitude}`,
-          radius: 500,
-          type: 'restaurant',
-          key: apiKey,
-        },
-      };
+export const getRestaurants = async (latitude: number, longitude: number): Promise<string[]> => {
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
-      // Flatten the parameters for constructing URL manually
-      const params = Object.entries(request.params)
-        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
-        .join('&');
+  if (!apiKey) {
+    throw new Error('Google Maps API key is missing. Please provide a valid API key.');
+  }
 
-      // Construct the URL manually
-      const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?${params}`;
+  try {
+    const request: PlacesNearbyRequest = {
+      params: {
+        location: `${latitude},${longitude}`,
+        radius: 500,
+        type: 'restaurant',
+        key: apiKey,
+      },
+    };
 
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+    // Flatten the parameters for constructing URL manually
+    const params = Object.entries(request.params)
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+      .join('&');
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+    // Construct the URL manually
+    const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?${params}`;
 
-      const responseData: PlacesNearbyResponseData = await response.json();
+    console.log("API URL:", url);
 
-      // Check if 'results' property exists in the response data
-      if (responseData && 'results' in responseData) {
-        // Extract restaurant names from the response and filter out undefined values
-        const restaurantNames = responseData.results
-          .map((result) => result.name)
-          .filter((name) => name !== undefined) as string[];
-        return restaurantNames;
-      } else {
-        throw new Error('Results property not found in the API response');
-      }
-    } catch (error) {
-      console.error('Error fetching restaurants', error);
-      throw error;
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    console.log("API Response Status:", response.status);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-  },
-};
 
-export default api;
+    const responseData: PlacesNearbyResponseData = await response.json();
+    console.log("API Response Data:", responseData);
+
+    // Check if 'results' property exists in the response data
+    if (responseData && 'results' in responseData) {
+      // Extract restaurant names from the response and filter out undefined values
+      const restaurantNames = responseData.results
+        .map((result) => result.name)
+        .filter((name) => name !== undefined) as string[];
+      return restaurantNames;
+    } else {
+      throw new Error('Results property not found in the API response');
+    }
+  } catch (error) {
+    console.error('Error fetching restaurants', error);
+    throw error;
+  }
+};

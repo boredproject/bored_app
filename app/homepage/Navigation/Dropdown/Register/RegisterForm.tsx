@@ -70,10 +70,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ isOpen, toggleDropdown }) =
         <p className="text-xs mb-6">Register</p>
 
 
-    <form onSubmit={handleSubmit}>
+    <form 
+    className="flex flex-col justify-center"
+    onSubmit={handleSubmit}>
       <input
           name="email"
-          className="flex col-auto justify-between items-center border-2 border-indigo-800/100 mb-4 text-sm font-light text-black"
+          className="flex justify-between items-center border-2 border-indigo-800/100 mb-4 text-sm font-light text-black w-full"
              type="email"
              value={email}
              onChange={(e) => setEmail(e.target.value)}
@@ -83,7 +85,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ isOpen, toggleDropdown }) =
 
       <input
           name="username"
-          className="flex col-auto justify-between items-center border-2 border-indigo-800/100 mb-4 text-sm font-light text-black"
+          className="flex justify-between items-center border-2 border-indigo-800/100 mb-4 text-sm font-light text-black"
              type="text"
              value={username}
              onChange={(e) => setUsername(e.target.value)}
@@ -97,9 +99,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ isOpen, toggleDropdown }) =
              value={password}
              onChange={(e) => setPassword(e.target.value)}
              placeholder="Mot de passe" />
-
-      <button type="submit">S'inscrire</button>
+<div className="flex justify-between gap-6">
+<button type="submit"
+className="bg-[#5E2BFF] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+>S'inscrire</button>
+      <p className="text-xs hover:underline hover:text-[#5E2BFF]">Already have an account?</p>
       {error && <p>{error}</p>}
+</div>
+      
     </form>
     </div>
   );

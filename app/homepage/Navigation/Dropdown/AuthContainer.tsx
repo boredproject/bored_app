@@ -15,7 +15,7 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ isOpen, toggleDropdown })
     };
 
     return (
-        <div>
+        <>
             {showLoginForm ? (
                 <LoginForm
                     toggleDropdown={toggleDropdown}
@@ -25,7 +25,7 @@ const AuthContainer: React.FC<AuthContainerProps> = ({ isOpen, toggleDropdown })
             ) : (
                 <RegisterForm toggleDropdown={toggleDropdown} isOpen={isOpen} />
             )}
-        </div>
+        </>
     );
 };
 

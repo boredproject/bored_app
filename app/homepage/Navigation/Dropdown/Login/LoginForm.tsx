@@ -113,7 +113,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
         }
         className="flex justify-start hover:underline text-xs hover:text-[#5E2BFF]"
         >Register</p>
-
       </div>
     </div>
   );

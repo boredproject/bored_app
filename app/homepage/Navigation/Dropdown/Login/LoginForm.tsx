@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 interface LoginFormProps {
   isOpen: boolean;
@@ -15,6 +16,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -32,8 +34,9 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
       if (response.ok) {
         const data = await response.json();
-        // Faites quelque chose avec la réponse, par exemple, stockez le token JWT
-        // Redirigez ou mettez à jour l'état de l'application
+        const { token } = await response.json();
+        localStorage.setItem("token", token); // Stockage du token
+        window.location.reload(); // Rechargement de la page sans redirection
       } else {
         const errorData = await response.json();
         setError(

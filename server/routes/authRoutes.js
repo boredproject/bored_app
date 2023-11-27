@@ -10,9 +10,6 @@ router.post("/register", async (req, res) => {
   try {
     const { email, username, password } = req.body;
 
-    // Validation des données d'entrée...
-    // Vérifier si l'utilisateur existe déjà...
-
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ email, username, password: hashedPassword });
 

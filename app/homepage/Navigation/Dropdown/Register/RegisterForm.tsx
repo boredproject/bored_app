@@ -1,30 +1,35 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 interface RegisterFormProps {
   isOpen: boolean;
   toggleDropdown: () => void;
 }
-const RegisterForm: React.FC<RegisterFormProps> = ({ isOpen, toggleDropdown }) => {  const [email, setEmail] = useState("");
+const RegisterForm: React.FC<RegisterFormProps> = ({
+  isOpen,
+  toggleDropdown,
+}) => {
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const history = useHistory();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError("");
 
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, username, password }),
       });
 
       if (response.ok) {
-        // L'utilisateur a été enregistré avec succès
-        // Redirige ou met à jour l'état de l'application
+        window.location.reload(); // Rechargement de la page sans redirection
       } else {
         const errorData = await response.json();
         setError(errorData.message);
@@ -35,9 +40,8 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ isOpen, toggleDropdown }) =
   };
 
   return (
-
-      <div className="absolute z-10 w-80 flex flex-col right-0 bg-zinc-900 p-4 shadow-md shadow-indigo-800 border-4 border-indigo-800/100">
-        <p className="flex flex-row text-3xl font-bold">
+    <div className="absolute z-10 w-80 flex flex-col right-0 bg-zinc-900 p-4 shadow-md shadow-indigo-800 border-4 border-indigo-800/100">
+      <p className="flex flex-row text-3xl font-bold">
         BO<span className="text-[#5E2BFF]">RED</span>
         <svg
           width="25"
@@ -68,45 +72,46 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ isOpen, toggleDropdown }) =
 
       <p className="text-xs mb-6">Register</p>
 
-
-    <form 
-    className="flex flex-col justify-center"
-    onSubmit={handleSubmit}>
-      <input
+      <form className="flex flex-col justify-center" onSubmit={handleSubmit}>
+        <input
           name="email"
           className="flex justify-between items-center border-2 border-indigo-800/100 mb-4 text-sm font-light text-black w-full"
-             type="email"
-             value={email}
-             onChange={(e) => setEmail(e.target.value)}
-             placeholder="Email" />
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+        />
 
-
-
-      <input
+        <input
           name="username"
           className="flex justify-between items-center border-2 border-indigo-800/100 mb-4 text-sm font-light text-black"
-             type="text"
-             value={username}
-             onChange={(e) => setUsername(e.target.value)}
-             placeholder="Nom d'utilisateur" />
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Nom d'utilisateur"
+        />
 
-
-      <input
+        <input
           name="password"
           className="flex col-auto justify-between items-center border-2 border-indigo-800/100 mb-4 text-sm font-light text-black"
-             type="password"
-             value={password}
-             onChange={(e) => setPassword(e.target.value)}
-             placeholder="Mot de passe" />
-<div className="flex justify-between gap-6">
-<button type="submit"
-className="bg-[#5E2BFF] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
->S&apos;inscrire</button>
-      <p className="text-xs hover:underline hover:text-[#5E2BFF]">Already have an account?</p>
-      {error && <p>{error}</p>}
-</div>
-      
-    </form>
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Mot de passe"
+        />
+        <div className="flex justify-between gap-6">
+          <button
+            type="submit"
+            className="bg-[#5E2BFF] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            S&apos;inscrire
+          </button>
+          <p className="text-xs hover:underline hover:text-[#5E2BFF]">
+            Already have an account?
+          </p>
+          {error && <p>{error}</p>}
+        </div>
+      </form>
     </div>
   );
 };

@@ -6,22 +6,23 @@ import LoginForm from "./Dropdown/Login/LoginForm";
 import RegisterForm from "./Dropdown/Register/RegisterForm";
 
 const Navigation = () => {
-  const [estDropdownProfileOuvert, setEstDropdownProfileOuvert] = useState(false);
+  const [isDropdownProfileOpen, setIsDropdownProfileOpen] = useState(false);
   const [showRegisterForm, setShowRegisterForm] = useState(false);
 
-  const basculerDropdownProfile = () => {
-    setEstDropdownProfileOuvert(!estDropdownProfileOuvert);
+  const switchDropdownProfile = () => {
+    setIsDropdownProfileOpen(!isDropdownProfileOpen);
   };
 
-  const fermerDropdownProfile = () => {
-    setEstDropdownProfileOuvert(false);
+  const closeDropdownProfile = () => {
+    setIsDropdownProfileOpen(false);
   };
 
   const handleRegisterView = () => {
-    fermerDropdownProfile();
+    closeDropdownProfile();
     setShowRegisterForm(true);
   };
-  return (
+
+return (
       <div className="flex justify-center">
         <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen">
           <div className="flex flex-row">
@@ -37,7 +38,7 @@ const Navigation = () => {
                 viewBox="0 0 14 14"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                onClick={basculerDropdownProfile}
+                onClick={switchDropdownProfile}
 
             >
               <path
@@ -47,16 +48,16 @@ const Navigation = () => {
             </svg>
           </div>
         </nav>
-        {estDropdownProfileOuvert && !showRegisterForm && (
+        {isDropdownProfileOpen && !showRegisterForm && (
             <LoginForm
-                isOpen={estDropdownProfileOuvert}
-                toggleDropdown={fermerDropdownProfile}
+                isOpen={isDropdownProfileOpen}
+                toggleDropdown={closeDropdownProfile}
                 toggleRegisterView={handleRegisterView} // Utilisez la nouvelle fonction ici
             />
         )}
         {showRegisterForm && (
             <RegisterForm
-                isOpen={estDropdownProfileOuvert}
+                isOpen={isDropdownProfileOpen}
                 toggleDropdown={() => setShowRegisterForm(false)} // Fermer le formulaire d'inscription
             />
         )}

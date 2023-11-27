@@ -13,11 +13,17 @@ const HungryPage = () => {
         <div className={styles.container}>
             <IdeaButton type="svg1" textspin="spinnersvg1" />
             <div className={styles.rightPanel}>
-                <div className={styles.innerPanel}>Berliner Kebab</div>
-                <div className={styles.innerPanel}>Berliner Kebab</div>
-                <div className={styles.innerPanel}>Berliner Kebab</div>
-                <div className={styles.innerPanel}>Berliner Kebab</div>
-                <div className={styles.innerPanel}>Berliner Kebab</div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
+                <div className={styles.innerPanel}>Berliner Kebab <span>22km</span></div>
             </div>
         </div>
         <WaveFooter />

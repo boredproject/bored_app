@@ -7,6 +7,7 @@ interface ProductPageProps {
   restaurants: string[];
 }
 
+// ProductPage.tsx
 const ProductPage: React.FC<ProductPageProps> = ({ restaurants }) => {
   console.log("Restaurants:", restaurants);
 

@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-const HistoricTable = () => {
+const HistoryTable = () => {
 
 
     return (
@@ -154,4 +154,4 @@ const HistoricTable = () => {
 
 
 
-export default HistoricTable
+export default HistoryTable

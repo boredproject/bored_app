@@ -10,9 +10,9 @@ app.use(express.json());
 app.use(cors());
 app.use('/api/auth', authRoutes);
 
-app.post('/api/auth/register', (req, res) => {
-  res.status(201).json({ message: "Utilisateur créé avec succès" });
-});
+// app.post('/api/auth/register', (req, res) => {
+//   res.status(201).json({ message: "Utilisateur créé avec succès" });
+// });
 
 const connectDb = require('./server/database/db');
 
@@ -28,3 +28,4 @@ app.use((err, req, res, next) => {
     res.status(500).send('Une erreur est survenue !');
   });
   
+  app.use('/api/auth', require('./routes/authRoutes'));

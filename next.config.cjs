@@ -9,7 +9,15 @@ const nextConfig = {
     },
     env: {
         NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: localEnv.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-      },
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/api/:path',
+                destination: 'http://localhost:3001/api/:path*'
+            }
+        ]
+    },
 };
 
 module.exports = nextConfig;

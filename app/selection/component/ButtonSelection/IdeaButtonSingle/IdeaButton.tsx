@@ -1,5 +1,5 @@
 // IdeaButton.tsx
-"use client;";
+"use client";
 
 import React from "react";
 import ButtonSVG from "../IdeaButtonSVG/ButtonSVG";

@@ -1,8 +1,8 @@
 // SelectionPage.jsx
 import React from 'react';
-import Navigation from '../../homepage/Navigation/Navigation';
 import ButtonSelection from '../component/ButtonSelection/ButtonSelection';
 import WaveFooter from '../../homepage/Footer/WaveFooter';
+import Navigation from "../../homepage/Navigation/Navigation";
 
 const SelectionPage = () => {
     return (

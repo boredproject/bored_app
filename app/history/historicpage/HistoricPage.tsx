@@ -1,9 +1,10 @@
 import React from "react";
+
+import HistoryTable from "../component/HistoryTable";
 import Navigation from "../../homepage/Navigation/Navigation";
 import WaveFooter from "../../homepage/Footer/WaveFooter";
-import HistoryTable from "../component/HistoryTable";
 
-const HistoryPage = () => {
+const HistoricPage = () => {
     return (
         <div>
             <Navigation />
@@ -14,4 +15,4 @@ const HistoryPage = () => {
 }
 
 
-export default HistoryPage
+export default HistoricPage

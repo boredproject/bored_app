@@ -1,11 +1,12 @@
 import React from "react";
-import HistoryPage from "./historypage/History";
+import HistoricPage from "./historicpage/HistoricPage";
+
 
 
 const OptionPage = () => {
   return (
     <div>
-        <HistoryPage />
+        <HistoricPage />
     </div>
   )
 }

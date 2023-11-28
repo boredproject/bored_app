@@ -1,18 +1,16 @@
 import express from 'express';
 import axios from 'axios';
-import cors from 'cors'; // Import cors
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
-
-// Enable CORS for all routes
 app.use(cors());
 
 app.get('/api/places', async (req, res) => {
     const { latitude, longitude } = req.query;
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+    const apiKey = 'AIzaSyBuDk20jn5OMe3VkPhJDyIUAHx49ZWQid0';
 
     try {
         const response = await axios.get(
@@ -20,7 +18,7 @@ app.get('/api/places', async (req, res) => {
             {
                 params: {
                     location: `${latitude},${longitude}`,
-                    radius: 100000, // Adjust the radius as needed
+                    radius: 1000,
                     type: 'restaurant',
                     key: apiKey,
                 },

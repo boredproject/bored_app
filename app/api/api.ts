@@ -1,4 +1,7 @@
 // api.ts
+
+require('dotenv').config();
+
 interface PlacesNearbyRequest {
   params: {
     location: string;
@@ -27,7 +30,7 @@ export const getRestaurants = async (latitude: number, longitude: number): Promi
     const request: PlacesNearbyRequest = {
       params: {
         location: `${latitude},${longitude}`,
-        radius: 500,
+        radius: 1000, // Adjust the radius as needed
         type: 'restaurant',
         key: apiKey,
       },

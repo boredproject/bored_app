@@ -2,15 +2,13 @@
 import React from "react";
 import IdeaButton from "../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton";
 import { getRestaurants } from "../api/api";
+import axios from "axios";
 
 interface ProductPageProps {
   restaurants: string[];
 }
 
-// ProductPage.tsx
 const ProductPage: React.FC<ProductPageProps> = ({ restaurants }) => {
-  console.log("Restaurants:", restaurants);
-
   return (
     <div className="flex justify-between">
       <div className="flex justify-center items-center px-5">
@@ -44,7 +42,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ restaurants }) => {
 
 export const getServerSideProps = async () => {
   try {
-    // Fetch user location (you may need to implement this)
+    // Fetch user location using ipinfo.io
     const location = await getUserLocation();
 
     console.log("User Location:", location);
@@ -66,8 +64,21 @@ export const getServerSideProps = async () => {
 };
 
 // Simulate fetching user location
-const getUserLocation = async () => {
-  return { latitude: 123.456, longitude: 789.012 }; // Replace with actual implementation
+const getUserLocation = async (): Promise<{ latitude: number; longitude: number }> => {
+  try {
+    const response = await axios.get('https://ipinfo.io/json');
+    const data = response.data;
+
+    if (data.loc) {
+      const [latitude, longitude] = data.loc.split(',').map(Number);
+      return { latitude, longitude };
+    } else {
+      throw new Error('Location data not available');
+    }
+  } catch (error) {
+    console.error('Error getting user location:', error);
+    throw error;
+  }
 };
 
 export default ProductPage;

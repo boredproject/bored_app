@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import ProductPage from "./ProductPage";
 import Navigation from "../homepage/Navigation/Navigation";

@@ -1,9 +1,9 @@
 import React from "react";
-import Navigation from "../../homepage/navigation/Navigation";
-import WaveFooter from "../../homepage/footer/WaveFooter";
+import Navigation from "../../homepage/Navigation/Navigation";
+import WaveFooter from "../../homepage/Footer/WaveFooter";
 import HistoryTable from "../component/HistoryTable";
 
-const HistoricPage = () => {
+const HistoryPage = () => {
     return (
         <div>
             <Navigation />
@@ -14,4 +14,4 @@ const HistoricPage = () => {
 }
 
 
-export default HistoricPage
+export default HistoryPage

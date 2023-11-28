@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "NODE_ENV=development ts-node -r tsconfig-paths/register app/api/server.ts"
+    "server": "set NODE_ENV=development && ts-node -r tsconfig-paths/register app/api/server.ts"
   },
   "dependencies": {
     "@google/maps": "^1.1.3",

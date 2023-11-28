@@ -1,8 +1,9 @@
 // ProductPage.tsx
+
 import React from "react";
 import IdeaButton from "../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton";
+import axios from "axios";  // Import Axios
 import { getRestaurants } from "../api/api";
-import axios from "axios";
 
 interface ProductPageProps {
   restaurants: string[];

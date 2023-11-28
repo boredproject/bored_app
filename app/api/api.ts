@@ -1,15 +1,7 @@
 // api.ts
 
+import axios from 'axios';
 require('dotenv').config();
-
-interface PlacesNearbyRequest {
-  params: {
-    location: string;
-    radius: number;
-    type: string;
-    key: string;
-  };
-}
 
 interface PlacesNearbyResponseData {
   results: {
@@ -27,39 +19,21 @@ export const getRestaurants = async (latitude: number, longitude: number): Promi
   }
 
   try {
-    const request: PlacesNearbyRequest = {
-      params: {
-        location: `${latitude},${longitude}`,
-        radius: 1000, // Adjust the radius as needed
-        type: 'restaurant',
-        key: apiKey,
-      },
-    };
-
-    // Flatten the parameters for constructing URL manually
-    const params = Object.entries(request.params)
-      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
-      .join('&');
-
-    // Construct the URL manually
-    const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?${params}`;
-
-    console.log("API URL:", url);
-
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const response = await axios.get<PlacesNearbyResponseData>(
+      'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+      {
+        params: {
+          location: `${latitude},${longitude}`,
+          radius: 1000, // Adjust the radius as needed
+          type: 'restaurant',
+          key: apiKey,
+        },
+      }
+    );
 
     console.log("API Response Status:", response.status);
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const responseData: PlacesNearbyResponseData = await response.json();
+    const responseData = response.data;
     console.log("API Response Data:", responseData);
 
     // Check if 'results' property exists in the response data

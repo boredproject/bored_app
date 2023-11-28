@@ -1,9 +1,11 @@
 "use client"
 import React, { useState } from "react";
 import MainButton from "../CTA/MainButton/MainButton";
-import Link from "next/link";
 import LoginForm from "./Dropdown/Login/LoginForm";
 import RegisterForm from "./Dropdown/Register/RegisterForm";
+import {useRouter} from "next/navigation";
+
+
 
 const Navigation = () => {
   const [isDropdownProfileOpen, setIsDropdownProfileOpen] = useState(false);
@@ -12,6 +14,7 @@ const Navigation = () => {
   const switchDropdownProfile = () => {
     setIsDropdownProfileOpen(!isDropdownProfileOpen);
   };
+  const router = useRouter();
 
   const closeDropdownProfile = () => {
     setIsDropdownProfileOpen(false);
@@ -22,13 +25,17 @@ const Navigation = () => {
     setShowRegisterForm(true);
   };
 
+  const handleNavigationButtonClick = () => {
+    router.push('/');
+  };
+
 return (
-      <div className="flex justify-center">
-        <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen">
+      <div className="flex justify-center"  >
+        <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen z-10">
           <div className="flex flex-row">
-            <Link href="/">
-              <MainButton />
-            </Link>
+            <div className="flex flex-row" onClick={handleNavigationButtonClick}>
+              <MainButton  />
+            </div>
           </div>
           <div className="flex flex-row">
             <svg
@@ -52,13 +59,13 @@ return (
             <LoginForm
                 isOpen={isDropdownProfileOpen}
                 toggleDropdown={closeDropdownProfile}
-                toggleRegisterView={handleRegisterView} // Utilisez la nouvelle fonction ici
+                toggleRegisterView={handleRegisterView}
             />
         )}
         {showRegisterForm && (
             <RegisterForm
                 isOpen={isDropdownProfileOpen}
-                toggleDropdown={() => setShowRegisterForm(false)} // Fermer le formulaire d'inscription
+                toggleDropdown={() => setShowRegisterForm(false)}
             />
         )}
       </div>

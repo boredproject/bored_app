@@ -12,7 +12,7 @@ interface IdeaButtonProps {
 
 const IdeaButton: React.FC<IdeaButtonProps> = ({ type, textspin }) => {
   return (
-    <div className="min-h-screen flex items-center justify-center md:scale-75 scale-50 lg:scale-100 lg:hover:scale-110 transition-all ease-in duration-500">
+    <div className="z-0 min-h-screen flex flex-row-reverse items-center justify-center md:scale-75 scale-50 lg:scale-100 lg:hover:scale-110 transition-all ease-in duration-500">
       <div>
         <SpinnerButtonSVG type={textspin} />
       </div>

@@ -7,7 +7,7 @@ import IdeaButton from './IdeaButtonSingle/IdeaButton';
 
 const ButtonSelection = () => {
   return (
-    <div className='flex flex-col w-screen'>
+    <div className='flex flex-col w-screen z-0'>
       <div className='lg:flex lg:flex-row lg:justify-evenly hidden flex-col lg:gap-44'>
       <IdeaButton type="svg1" textspin='spinnersvg1' /> {/* Vous pouvez changer le type ici */}
       <IdeaButton type="svg2" textspin='spinnersvg2'/> {/* Vous pouvez changer le type ici */}

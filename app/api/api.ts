@@ -1,61 +1,55 @@
-import axios, { AxiosResponse } from 'axios';
+// api.ts
+import axios from 'axios';
 
-const { NEXT_PUBLIC_GOOGLE_MAPS_API_KEY } = process.env;
-
-interface RestaurantResponse {
-  results: {
-    name: string;
-    // Add other properties you want to use
-  }[];
-}
-
-interface LocationResponse {
+interface UserLocationResponse {
   location: {
     lat: number;
     lng: number;
   };
 }
 
-const api = {
-  getNearbyRestaurants: async (latitude: number, longitude: number): Promise<RestaurantResponse> => {
-    try {
-      const response: AxiosResponse<RestaurantResponse> = await axios.get(
-        'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-        {
-          params: {
-            location: `${latitude},${longitude}`,
-            radius: 500,
-            type: 'restaurant',
-            key: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-          },
-        }
-      );
+interface PlacesNearbyResponseData {
+  results: {
+    name: string;
+  }[];
+}
 
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching nearby restaurants', error);
-      throw error;
-    }
-  },
-
-  getUserLocation: async (): Promise<LocationResponse> => {
-    try {
-      const response: AxiosResponse<LocationResponse> = await axios.post(
-        'https://www.googleapis.com/geolocation/v1/geolocate',
-        {},
-        {
-          params: {
-            key: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-          },
-        }
-      );
-
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching user location', error);
-      throw error;
-    }
-  },
+export const getUserLocation = async (): Promise<UserLocationResponse> => {
+  return new Promise((resolve) => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      resolve({
+        location: {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        },
+      });
+    });
+  });
 };
 
-export default api;
+export const getRestaurants = async (latitude: number, longitude: number): Promise<string[]> => {
+  try {
+    const response = await axios.get<{ results: { name: string }[] }>(
+        'http://localhost:3001/api/places',
+        {
+          params: {
+            latitude,
+            longitude,
+          },
+        }
+    );
+
+    const responseData = response.data;
+
+    if (responseData && 'results' in responseData) {
+      return responseData.results
+          .map((result) => result.name)
+          .filter((name) => name !== undefined) as string[];
+    } else {
+      throw new Error('Results property not found in the API response');
+    }
+  } catch (error) {
+    console.error('Error fetching restaurants', error);
+    throw error;
+  }
+};

@@ -1,34 +1,41 @@
 "use client"
 import React, { useState } from "react";
 import MainButton from "../CTA/MainButton/MainButton";
-import Link from "next/link";
 import LoginForm from "./Dropdown/Login/LoginForm";
 import RegisterForm from "./Dropdown/Register/RegisterForm";
+import {useRouter} from "next/navigation";
+
+
 
 const Navigation = () => {
-  const [estDropdownProfileOuvert, setEstDropdownProfileOuvert] = useState(false);
+  const [isDropdownProfileOpen, setIsDropdownProfileOpen] = useState(false);
   const [showRegisterForm, setShowRegisterForm] = useState(false);
 
-  const basculerDropdownProfile = () => {
-    setEstDropdownProfileOuvert(!estDropdownProfileOuvert);
+  const switchDropdownProfile = () => {
+    setIsDropdownProfileOpen(!isDropdownProfileOpen);
   };
+  const router = useRouter();
 
-  const fermerDropdownProfile = () => {
-    setEstDropdownProfileOuvert(false);
+  const closeDropdownProfile = () => {
+    setIsDropdownProfileOpen(false);
   };
 
   const handleRegisterView = () => {
-    fermerDropdownProfile();
+    closeDropdownProfile();
     setShowRegisterForm(true);
   };
 
+  const handleNavigationButtonClick = () => {
+    router.push('/');
+  };
+
 return (
-      <div className="flex justify-center">
-        <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen">
+      <div className="flex justify-center"  >
+        <nav className="flex items-center justify-between lg:p-5 p-6 fixed cursor w-screen z-10">
           <div className="flex flex-row">
-            <Link href="/">
-              <MainButton />
-            </Link>
+            <div className="flex flex-row" onClick={handleNavigationButtonClick}>
+              <MainButton  />
+            </div>
           </div>
           <div className="flex flex-row">
             <svg
@@ -38,7 +45,7 @@ return (
                 viewBox="0 0 14 14"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                onClick={basculerDropdownProfile}
+                onClick={switchDropdownProfile}
 
             >
               <path
@@ -48,17 +55,17 @@ return (
             </svg>
           </div>
         </nav>
-        {estDropdownProfileOuvert && !showRegisterForm && (
+        {isDropdownProfileOpen && !showRegisterForm && (
             <LoginForm
-                isOpen={estDropdownProfileOuvert}
-                toggleDropdown={fermerDropdownProfile}
-                toggleRegisterView={handleRegisterView} // Utilisez la nouvelle fonction ici
+                isOpen={isDropdownProfileOpen}
+                toggleDropdown={closeDropdownProfile}
+                toggleRegisterView={handleRegisterView}
             />
         )}
         {showRegisterForm && (
             <RegisterForm
-                isOpen={estDropdownProfileOuvert}
-                toggleDropdown={() => setShowRegisterForm(false)} // Fermer le formulaire d'inscription
+                isOpen={isDropdownProfileOpen}
+                toggleDropdown={() => setShowRegisterForm(false)}
             />
         )}
       </div>

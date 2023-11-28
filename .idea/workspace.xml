@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15c0dc89-4d4c-482a-944b-d7f2093b0cda" name="Changes" comment="feat : server created, api implemented">
+    <list default="true" id="15c0dc89-4d4c-482a-944b-d7f2093b0cda" name="Changes" comment="fix: z-index fixed for nav button">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/productpage/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/productpage/ProductPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +30,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN",
+      "assignee": "Samy951",
+      "author": "Samy951"
+    }
+  ],
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Samy951",
+    "author": "Samy951"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -61,6 +74,14 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="7ac89329-f330-4eef-8773-d29c417b27cb" />
+        <option name="url" value="https://github.com/boredproject/bored_app.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -76,21 +97,21 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;product__page&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/samyhamlat/workstation/projet-perso/bored_app/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "transitionPage",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/samyhamlat/workstation/projet-perso/bored_app/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\wisse\Documents\GitHub\bored_app\app\historic" />
@@ -147,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701137244093</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix: z-index fixed for nav button">
+      <option name="closed" value="true" />
+      <created>1701145079176</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701145079176</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +186,8 @@
     <MESSAGE value="feat: spinningText" />
     <MESSAGE value="feat : start of product page" />
     <MESSAGE value="feat : server created, api implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : server created, api implemented" />
+    <MESSAGE value="fix: z-index fixed for nav button" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: z-index fixed for nav button" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

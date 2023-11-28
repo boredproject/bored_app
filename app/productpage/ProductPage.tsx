@@ -1,36 +1,67 @@
 // ProductPage.tsx
 
-import React from "react";
+'use client';
+
+import React, { useEffect, useState } from "react";
+import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
+import api from "../api/api";
 import IdeaButton from "../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton";
-import axios from "axios";  // Import Axios
-import { getRestaurants } from "../api/api";
 
-interface ProductPageProps {
-  restaurants: string[];
-}
+const ProductPage: React.FC = () => {
+  const [restaurants, setRestaurants] = useState<string[] | null>(null);
+  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
 
-const ProductPage: React.FC<ProductPageProps> = ({ restaurants }) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userLocationResponse = await api.getUserLocation();
+        setUserLocation({
+          lat: userLocationResponse.location.lat,
+          lng: userLocationResponse.location.lng,
+        });
+
+        const nearbyRestaurants = await api.getNearbyRestaurants(
+          userLocationResponse.location.lat,
+          userLocationResponse.location.lng
+        );
+        setRestaurants(nearbyRestaurants.results.map((result) => result.name));
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="flex justify-between">
       <div className="flex justify-center items-center px-5">
         <div>
           <IdeaButton type="svg1" textspin="spinnersvg1" />
         </div>
+        {userLocation && (
+          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''} >
+            <GoogleMap
+              center={{ lat: userLocation.lat, lng: userLocation.lng }}
+              zoom={15}
+              mapContainerStyle={{ width: "400px", height: "400px" }}
+            >
+              {userLocation && <Marker position={{ lat: userLocation.lat, lng: userLocation.lng }} />}
+            </GoogleMap>
+          </LoadScript>
+        )}
         <div className="border-2 border-[#5E2BFF] p-2 rounded-lg">
           <table className="border-[#5E2BFF] border-separate border-spacing-2 rounded-lg">
             <tbody className="border-spacing-2 rounded-lg">
-              {restaurants && restaurants.length > 0 ? (
+              {restaurants ? (
                 restaurants.map((restaurant, index) => (
                   <tr key={index}>
                     <td className="border-2 border-[#5E2BFF] rounded p-2">{restaurant}</td>
-                    {/* Add other restaurant information as needed */}
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td className="border-2 border-[#5E2BFF] rounded p-2">
-                    {restaurants ? 'No restaurants found' : 'Loading...'}
-                  </td>
+                  <td className="border-2 border-[#5E2BFF] rounded p-2">Loading...</td>
                 </tr>
               )}
             </tbody>
@@ -39,47 +70,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ restaurants }) => {
       </div>
     </div>
   );
-};
-
-export const getServerSideProps = async () => {
-  try {
-    // Fetch user location using ipinfo.io
-    const location = await getUserLocation();
-
-    console.log("User Location:", location);
-
-    // Fetch restaurants using the server-side API function
-    const restaurants = await getRestaurants(location.latitude, location.longitude);
-
-    console.log("Fetched Restaurants:", restaurants);
-
-    return {
-      props: { restaurants: restaurants || [] }, // Ensure that restaurants is an array
-    };
-  } catch (error) {
-    console.error('Error fetching data', error);
-    return {
-      props: { restaurants: [] }, // Provide an empty array in case of an error
-    };
-  }
-};
-
-// Simulate fetching user location
-const getUserLocation = async (): Promise<{ latitude: number; longitude: number }> => {
-  try {
-    const response = await axios.get('https://ipinfo.io/json');
-    const data = response.data;
-
-    if (data.loc) {
-      const [latitude, longitude] = data.loc.split(',').map(Number);
-      return { latitude, longitude };
-    } else {
-      throw new Error('Location data not available');
-    }
-  } catch (error) {
-    console.error('Error getting user location:', error);
-    throw error;
-  }
 };
 
 export default ProductPage;

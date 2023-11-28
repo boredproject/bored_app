@@ -5,8 +5,8 @@ import WaveFooter from "../homepage/Footer/WaveFooter";
 
 const ProdPage = ({ restaurants }: { restaurants: string[] }) => {
   return <div>
-    <Navigation />
-    <ProductPage restaurants={restaurants} />
+    <Navigation/>
+    <ProductPage/>
     <WaveFooter />
   </div>;
 };

@@ -1,53 +1,61 @@
-// api.ts
+import axios, { AxiosResponse } from 'axios';
 
-import axios from 'axios';
-require('dotenv').config();
+const { NEXT_PUBLIC_GOOGLE_MAPS_API_KEY } = process.env;
 
-interface PlacesNearbyResponseData {
+interface RestaurantResponse {
   results: {
     name: string;
-    // Add other properties as needed
+    // Add other properties you want to use
   }[];
-  // Add other properties as needed
 }
 
-export const getRestaurants = async (latitude: number, longitude: number): Promise<string[]> => {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+interface LocationResponse {
+  location: {
+    lat: number;
+    lng: number;
+  };
+}
 
-  if (!apiKey) {
-    throw new Error('Google Maps API key is missing. Please provide a valid API key.');
-  }
+const api = {
+  getNearbyRestaurants: async (latitude: number, longitude: number): Promise<RestaurantResponse> => {
+    try {
+      const response: AxiosResponse<RestaurantResponse> = await axios.get(
+        'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
+        {
+          params: {
+            location: `${latitude},${longitude}`,
+            radius: 500,
+            type: 'restaurant',
+            key: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+          },
+        }
+      );
 
-  try {
-    const response = await axios.get<PlacesNearbyResponseData>(
-      'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
-      {
-        params: {
-          location: `${latitude},${longitude}`,
-          radius: 1000, // Adjust the radius as needed
-          type: 'restaurant',
-          key: apiKey,
-        },
-      }
-    );
-
-    console.log("API Response Status:", response.status);
-
-    const responseData = response.data;
-    console.log("API Response Data:", responseData);
-
-    // Check if 'results' property exists in the response data
-    if (responseData && 'results' in responseData) {
-      // Extract restaurant names from the response and filter out undefined values
-      const restaurantNames = responseData.results
-        .map((result) => result.name)
-        .filter((name) => name !== undefined) as string[];
-      return restaurantNames;
-    } else {
-      throw new Error('Results property not found in the API response');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching nearby restaurants', error);
+      throw error;
     }
-  } catch (error) {
-    console.error('Error fetching restaurants', error);
-    throw error;
-  }
+  },
+
+  getUserLocation: async (): Promise<LocationResponse> => {
+    try {
+      const response: AxiosResponse<LocationResponse> = await axios.post(
+        'https://www.googleapis.com/geolocation/v1/geolocate',
+        {},
+        {
+          params: {
+            key: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching user location', error);
+      throw error;
+    }
+  },
 };
+
+export default api;

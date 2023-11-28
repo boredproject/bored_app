@@ -17,12 +17,14 @@ interface PlacesNearbyResponseData {
 export const getUserLocation = async (): Promise<UserLocationResponse> => {
   return new Promise((resolve) => {
     navigator.geolocation.getCurrentPosition((position) => {
-      resolve({
+      const userLocationResponse: UserLocationResponse = {
         location: {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         },
-      });
+      };
+      console.log('User Location Response:', userLocationResponse);
+      resolve(userLocationResponse);
     });
   });
 };
@@ -38,6 +40,8 @@ export const getRestaurants = async (latitude: number, longitude: number): Promi
           },
         }
     );
+
+    console.log('API Response:', response.data);
 
     const responseData = response.data;
 

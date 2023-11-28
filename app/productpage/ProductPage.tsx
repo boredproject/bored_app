@@ -1,35 +1,41 @@
 // ProductPage.tsx
 'use client';
-import React, { useEffect, useState } from "react";
-import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
-import { getUserLocation, getRestaurants } from "../api/api";  // Import specific functions
-import IdeaButton from "../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton";
+import React, { useEffect, useState } from 'react';
+import { getUserLocation, getRestaurants } from '../api/api';
+import IdeaButton from '../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton';
 
 const ProductPage: React.FC = () => {
   const [restaurants, setRestaurants] = useState<string[] | null>(null);
-  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const userLocationResponse = await getUserLocation();
-        setUserLocation({
-          lat: userLocationResponse.location.lat,
-          lng: userLocationResponse.location.lng,
-        });
+        console.log('User Location Response:', userLocationResponse);
 
-        const nearbyRestaurants = await getRestaurants(
-            userLocationResponse.location.lat,
-            userLocationResponse.location.lng
-        );
-        setRestaurants(nearbyRestaurants);
+        // Ajout d'un bloc try-catch pour gérer les erreurs spécifiques à cette promesse
+        try {
+          const nearbyRestaurants = await getRestaurants(
+              userLocationResponse.location.lat,
+              userLocationResponse.location.lng
+          );
+          console.log('Nearby Restaurants:', nearbyRestaurants);
+
+          setRestaurants(nearbyRestaurants);
+        } catch (error) {
+          console.error('Error in getRestaurants promise:', error);
+          // Vous pouvez ajouter un traitement d'erreur supplémentaire ici si nécessaire
+        }
       } catch (error) {
         console.error('Error fetching data', error);
+        // Vous pouvez afficher un message d'erreur à l'utilisateur ici si nécessaire
       }
     };
 
-    fetchData();
-  }, []);
+    fetchData().then(); // Explicitly use .then() to indicate that the promise is being used
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty dependency array means this effect runs once on mount
 
   return (
       <div className="flex justify-between">
@@ -37,17 +43,6 @@ const ProductPage: React.FC = () => {
           <div>
             <IdeaButton type="svg1" textspin="spinnersvg1" />
           </div>
-          {userLocation && (
-              <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
-                <GoogleMap
-                    center={{ lat: userLocation.lat, lng: userLocation.lng }}
-                    zoom={15}
-                    mapContainerStyle={{ width: "400px", height: "400px" }}
-                >
-                  {userLocation && <Marker position={{ lat: userLocation.lat, lng: userLocation.lng }} />}
-                </GoogleMap>
-              </LoadScript>
-          )}
           <div className="border-2 border-[#5E2BFF] p-2 rounded-lg">
             <table className="border-[#5E2BFF] border-separate border-spacing-2 rounded-lg">
               <tbody className="border-spacing-2 rounded-lg">

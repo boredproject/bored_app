@@ -2,12 +2,13 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "server": "set NODE_ENV=development && ts-node -r tsconfig-paths/register app/api/server.ts"
+    "server": "NODE_OPTIONS='--loader ts-node/esm' ts-node -r tsconfig-paths/register app/api/server.ts"
   },
   "dependencies": {
     "@google/maps": "^1.1.3",

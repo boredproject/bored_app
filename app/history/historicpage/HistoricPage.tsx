@@ -1,7 +1,8 @@
 import React from "react";
-import Navigation from "../../homepage/navigation/Navigation";
-import WaveFooter from "../../homepage/footer/WaveFooter";
+
 import HistoryTable from "../component/HistoryTable";
+import Navigation from "../../homepage/Navigation/Navigation";
+import WaveFooter from "../../homepage/Footer/WaveFooter";
 
 const HistoricPage = () => {
     return (

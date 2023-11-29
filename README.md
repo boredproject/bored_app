@@ -4,9 +4,9 @@ Welcome to BORED - your go-to hub for smashing boredom with just one click! Our 
 
 ## Tech Stack
 
-**Client:** ViteJS, VueJS, TailwindCSS, Typescript
+**Client:** Next.js, TailwindCSS, Typescript, Framer-motion
 
-**Server:** NodeJS, MySQL
+**Server:** MongoDB, Express, CORS
 
 **API:** GoogleMaps API
 

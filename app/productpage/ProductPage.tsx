@@ -1,13 +1,19 @@
-'use client';
+"use client";
 
+import React, { useEffect, useState } from "react";
+import { getUserLocation, getRestaurants} from "../api/api";
 
-import React, { useState, useEffect } from "react";
-import { getUserLocation, getRestaurants } from "../api/api";
 import IdeaButton from "../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton";
 import "./ProductPage.css";
 import Modal from "./component/Modal";
 
+interface Restaurant {
+  name: string;
+  distance: string; // Modifier le type de distance à string
+}
+
 const ProductPage: React.FC = () => {
+
   const [selectedRestaurant, setSelectedRestaurant] = useState<string | null>(null);
   const [restaurants, setRestaurants] = useState<string[] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,12 +36,20 @@ const ProductPage: React.FC = () => {
 
         try {
           const nearbyRestaurants = await getRestaurants(
-            userLocationResponse.location.lat,
-            userLocationResponse.location.lng
+              userLocationResponse.location.lat,
+              userLocationResponse.location.lng
           );
           console.log("Nearby Restaurants:", nearbyRestaurants);
 
-          setRestaurants(nearbyRestaurants);
+          // Mise à jour pour inclure la distance dans les résultats
+          const restaurantsWithDistance: Restaurant[] = nearbyRestaurants.results.map(
+              (restaurant) => ({
+                name: restaurant.name,
+                distance: restaurant.distance.toFixed(2), // Arrondir à deux décimales
+              })
+          );
+
+          setRestaurants(restaurantsWithDistance);
         } catch (error) {
           console.error("Error in getRestaurants promise:", error);
         }
@@ -63,7 +77,9 @@ const ProductPage: React.FC = () => {
                     className="hover:bg-[#5E2BFF] transition duration-500"
                     onClick={() => handleRestaurantClick(restaurant)}
                   >
-                    <td className="border-2 border-[#5E2BFF] rounded p-2">{restaurant}</td>
+                    <td className="border-2 border-[#5E2BFF] rounded p-2">
+                          {`${restaurant.name} - ${restaurant.distance} km`}
+                        </td>
                   </tr>
                 ))
               ) : (

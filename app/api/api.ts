@@ -1,4 +1,5 @@
 // api.ts
+
 import axios from 'axios';
 
 interface UserLocationResponse {
@@ -8,10 +9,19 @@ interface UserLocationResponse {
   };
 }
 
+interface Restaurant {
+  name: string;
+  geometry: {
+    location: {
+      lat: number;
+      lng: number;
+    };
+  };
+  distance: number;
+}
+
 interface PlacesNearbyResponseData {
-  results: {
-    name: string;
-  }[];
+  results: Restaurant[];
 }
 
 export const getUserLocation = async (): Promise<UserLocationResponse> => {
@@ -29,9 +39,9 @@ export const getUserLocation = async (): Promise<UserLocationResponse> => {
   });
 };
 
-export const getRestaurants = async (latitude: number, longitude: number): Promise<string[]> => {
+export const getRestaurants = async (latitude: number, longitude: number): Promise<PlacesNearbyResponseData> => {
   try {
-    const response = await axios.get<{ results: { name: string }[] }>(
+    const response = await axios.get<PlacesNearbyResponseData>(
         'http://localhost:3001/api/places',
         {
           params: {
@@ -46,9 +56,13 @@ export const getRestaurants = async (latitude: number, longitude: number): Promi
     const responseData = response.data;
 
     if (responseData && 'results' in responseData) {
-      return responseData.results
-          .map((result) => result.name)
-          .filter((name) => name !== undefined) as string[];
+      // Ajouter la distance à chaque résultat
+      const resultsWithDistance = responseData.results.map((result) => {
+        const distance = calculateDistance(latitude, longitude, result.geometry.location.lat, result.geometry.location.lng);
+        return { ...result, distance };
+      });
+
+      return { ...responseData, results: resultsWithDistance };
     } else {
       throw new Error('Results property not found in the API response');
     }
@@ -56,4 +70,25 @@ export const getRestaurants = async (latitude: number, longitude: number): Promi
     console.error('Error fetching restaurants', error);
     throw error;
   }
+};
+
+export const calculateDistance = (
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number
+): number => {
+  console.log(lat2,lat1)
+  const R = 6371; // Earth radius in kilometers
+  const dLat = (lat2 - lat1) * (Math.PI / 180);
+  const dLon = (lon2 - lon1) * (Math.PI / 180);
+  const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * (Math.PI / 180)) *
+      Math.cos(lat2 * (Math.PI / 180)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c;
+  return distance;
 };

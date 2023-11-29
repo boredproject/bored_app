@@ -18,7 +18,7 @@ app.get('/api/places', async (req, res) => {
             {
                 params: {
                     location: `${latitude},${longitude}`,
-                    radius: 500,
+                    radius: 15000,
                     type: 'restaurant',
                     key: apiKey,
                 },

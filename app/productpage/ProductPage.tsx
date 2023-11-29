@@ -75,9 +75,9 @@ const ProductPage: React.FC = () => {
                   restaurants.map((restaurant, index) => (
                       <tr key={index}
                         onClick={() => handleRestaurantClick(restaurant)}>
-                        <td className="flex justify-between border-4 border-[#5E2BFF] rounded p-2 hover:bg-[#5E2BFF] transition duration-500 font-bold text-3xl uppercase">
+                        <td className="flex justify-between felx-col border-4 border-[#5E2BFF] rounded p-2 text-center-+ hover:bg-[#5E2BFF] transition duration-500 font-bold text-3xl uppercase items-center">
                           {restaurant.name}
-                          <div className="flex justify-between border-4 border-[#5E2BFF] rounded p-2 w-[6%] text-center uppercase">
+                          <div className="flex justify-between border-4 border-[#5E2BFF] rounded p-2 w-1/12 text-center uppercase">
                             {restaurant.rating}
                             <figure>
                               <svg width="32" height="32" viewBox="0 0 181 172" fill="none" xmlns="http://www.w3.org/2000/svg">

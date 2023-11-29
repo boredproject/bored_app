@@ -15,11 +15,11 @@ interface Restaurant {
 const ProductPage: React.FC = () => {
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<string | null>(null);
-  const [restaurants, setRestaurants] = useState<string[] | null>(null);
+  const [restaurants, setRestaurants] = useState<Restaurant[] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleRestaurantClick = (restaurant: string) => {
-    setSelectedRestaurant(restaurant);
+  const handleRestaurantClick = (restaurant: Restaurant) => {
+    setSelectedRestaurant(restaurant.name); // Assuming you want to set the name as the selected restaurant
     setIsModalOpen(true);
   };
 

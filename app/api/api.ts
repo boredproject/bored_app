@@ -18,6 +18,7 @@ interface Restaurant {
     };
   };
   distance: number;
+  rating: number;
 }
 
 interface PlacesNearbyResponseData {
@@ -78,7 +79,6 @@ export const calculateDistance = (
     lat2: number,
     lon2: number
 ): number => {
-  console.log(lat2,lat1)
   const R = 6371; // Earth radius in kilometers
   const dLat = (lat2 - lat1) * (Math.PI / 180);
   const dLon = (lon2 - lon1) * (Math.PI / 180);
@@ -89,6 +89,6 @@ export const calculateDistance = (
       Math.sin(dLon / 2) *
       Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  const distance = R * c;
+  const distance = Math.round(R * c * 1000); // Distance in meters, rounded to the nearest integer
   return distance;
 };

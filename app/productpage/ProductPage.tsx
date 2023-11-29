@@ -1,10 +1,11 @@
-// ProductPage.tsx
-
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { getUserLocation, getRestaurants} from "../api/api";
+
 import IdeaButton from "../selection/component/ButtonSelection/IdeaButtonSingle/IdeaButton";
 import "./ProductPage.css";
+import Modal from "./component/Modal";
 
 interface Restaurant {
   name: string;
@@ -13,7 +14,20 @@ interface Restaurant {
 }
 
 const ProductPage: React.FC = () => {
+
+  const [selectedRestaurant, setSelectedRestaurant] = useState<string | null>(null);
   const [restaurants, setRestaurants] = useState<Restaurant[] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleRestaurantClick = (restaurant: Restaurant) => {
+    setSelectedRestaurant(restaurant.name); // Assuming you want to set the name as the selected restaurant
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedRestaurant(null);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,8 +60,6 @@ const ProductPage: React.FC = () => {
     };
 
     fetchData().then();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -61,7 +73,8 @@ const ProductPage: React.FC = () => {
               <tbody className="rounded-lg space">
               {restaurants ? (
                   restaurants.map((restaurant, index) => (
-                      <tr key={index}>
+                      <tr key={index}
+                        onClick={() => handleRestaurantClick(restaurant)}>
                         <td className="flex justify-between border-4 border-[#5E2BFF] rounded p-2 hover:bg-[#5E2BFF] transition duration-500 font-bold text-3xl uppercase">
                           {restaurant.name}
                           <div className="flex justify-between border-4 border-[#5E2BFF] rounded p-2 w-[6%] text-center uppercase">
@@ -78,20 +91,28 @@ const ProductPage: React.FC = () => {
                         <td className="border-4 border-[#5E2BFF] rounded p-2 w-1/12 text-center  hover:bg-[#5E2BFF] transition duration-500 font-bold text-3xl">
                           {restaurant.distance}m
                         </td>
-                      </tr>
-                  ))
-              ) : (
-                  <tr>
-                    <td className="border-2 border-[#5E2BFF] rounded p-2">
-                      Loading...
-                    </td>
                   </tr>
+                ))
+              ) : (
+                <tr>
+                  <td className="border-2 border-[#5E2BFF] rounded p-2">Loading...</td>
+                </tr>
               )}
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          name={selectedRestaurant || ""}
+          hours={null}
+          address={null}
+          desc={null}
+        />
+      )}
+    </div>
   );
 };
 
